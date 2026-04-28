@@ -33,6 +33,9 @@ test('未鉴权访问 /api 路由返回 401', async () => {
   const request = createRequest('/api/gg/tts?text=hello');
   const response = await worker.fetch(request, createEnv(), {});
   assert.equal(response.status, 401);
+  const data = await response.json();
+  assert.equal(data.code, 'UNAUTHORIZED');
+  assert.equal(typeof data.request_id, 'string');
 });
 
 test('GET /api/gg/tts 正常返回音频', async () => {
@@ -149,7 +152,7 @@ test('GET /api/gg/dict 返回 text 与 raw', async () => {
 
 test('GET /api/youdao/dict 基于真实数据整理 text', async () => {
   const originalFetch = globalThis.fetch;
-  const fixture = readFixtureJson('./youdo-dict-do.json');
+  const fixture = readFixtureJson('./simple/youdo-dict-do.json');
   globalThis.fetch = async () => jsonResponse(fixture);
 
   try {
@@ -171,7 +174,7 @@ test('GET /api/youdao/dict 基于真实数据整理 text', async () => {
 
 test('GET /api/youdao/suggest 基于真实数据整理 text', async () => {
   const originalFetch = globalThis.fetch;
-  const fixture = readFixtureJson('./youdao-suggest-do.json');
+  const fixture = readFixtureJson('./simple/youdao-suggest-do.json');
   globalThis.fetch = async () => jsonResponse(fixture);
 
   try {
@@ -191,7 +194,7 @@ test('GET /api/youdao/suggest 基于真实数据整理 text', async () => {
 
 test('GET /api/iciba/dict 基于真实数据整理 text', async () => {
   const originalFetch = globalThis.fetch;
-  const fixture = readFixtureJson('./iciba-dict-do.json');
+  const fixture = readFixtureJson('./simple/iciba-dict-do.json');
   globalThis.fetch = async () => jsonResponse(fixture);
 
   try {
@@ -213,7 +216,7 @@ test('GET /api/iciba/dict 基于真实数据整理 text', async () => {
 
 test('GET /api/iciba/suggest 基于真实数据整理 text', async () => {
   const originalFetch = globalThis.fetch;
-  const fixture = readFixtureJson('./iciba-suggestion-do.json');
+  const fixture = readFixtureJson('./simple/iciba-suggestion-do.json');
   globalThis.fetch = async () => jsonResponse(fixture);
 
   try {
@@ -247,6 +250,9 @@ test('REST 路由缺少 text 返回 400', async () => {
   });
   const response = await worker.fetch(request, createEnv(), {});
   assert.equal(response.status, 400);
+  const data = await response.json();
+  assert.equal(data.code, 'MISSING_TEXT');
+  assert.equal(typeof data.request_id, 'string');
 });
 
 test('上游失败时返回包含详细响应体的错误信息', async () => {
@@ -266,9 +272,39 @@ test('上游失败时返回包含详细响应体的错误信息', async () => {
     const data = await response.json();
     assert.match(data.error, /Google TTS HTTP 429/);
     assert.match(data.error, /quota exceeded/);
+    assert.equal(data.code, 'UPSTREAM_ERROR');
+    assert.equal(typeof data.request_id, 'string');
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test('POST /v1/chat/completions 缺少 model 返回统一错误结构', async () => {
+  const request = createRequest('/v1/chat/completions', {
+    method: 'POST',
+    headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      messages: [{ role: 'user', content: 'hello world' }],
+    }),
+  });
+  const response = await worker.fetch(request, createEnv(), {});
+  assert.equal(response.status, 400);
+  const data = await response.json();
+  assert.equal(data.code, 'MISSING_MODEL');
+  assert.equal(typeof data.request_id, 'string');
+});
+
+test('POST /v1/chat/completions 非法 JSON 返回统一错误结构', async () => {
+  const request = createRequest('/v1/chat/completions', {
+    method: 'POST',
+    headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+    body: '{ bad json',
+  });
+  const response = await worker.fetch(request, createEnv(), {});
+  assert.equal(response.status, 400);
+  const data = await response.json();
+  assert.equal(data.code, 'INVALID_JSON');
+  assert.equal(typeof data.request_id, 'string');
 });
 
 test('POST /v1/chat/completions 返回标准 OpenAI 兼容结构', async () => {
@@ -366,6 +402,94 @@ test('POST /v1/chat/completions 的 google-dict 返回 text 与 raw 的字符串
     assert.match(parsed.text, /翻译: 哭/);
     assert.equal(typeof parsed.raw, 'object');
     assert.equal(parsed.raw.sentences[0].orig, 'cry');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/chat/completions 支持 stream=true 且仅输出 text', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () =>
+    jsonResponse({
+      sentences: [{ trans: '你好' }, { trans: '世界' }],
+    });
+
+  try {
+    const request = createRequest('/v1/chat/completions', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-translate',
+        stream: true,
+        messages: [{ role: 'user', content: 'hello world' }],
+        source_lang: 'en',
+        target_lang: 'zh-CN',
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get('Content-Type') || '', /text\/event-stream/);
+    const bodyText = await response.text();
+    assert.match(bodyText, /"object":"chat\.completion\.chunk"/);
+    assert.match(bodyText, /"content":"你好世界"/);
+    assert.doesNotMatch(bodyText, /"raw":/);
+    assert.match(bodyText, /\[DONE\]/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/chat/completions 支持 stream=\"true\"', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () =>
+    jsonResponse({
+      result: 'ok',
+      data: { entries: [{ entry: 'do', explain: 'v. 做' }] },
+    });
+
+  try {
+    const request = createRequest('/v1/chat/completions', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'youdao-suggest',
+        stream: 'true',
+        messages: [{ role: 'user', content: 'do' }],
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    const bodyText = await response.text();
+    assert.match(bodyText, /"content":"do: v\."/);
+    assert.match(bodyText, /"content":"做"/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/chat/completions stream 对多句文本按句分块', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () =>
+    jsonResponse({
+      sentences: [{ trans: '第一句。第二句！Third?' }],
+    });
+
+  try {
+    const request = createRequest('/v1/chat/completions', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-translate',
+        stream: true,
+        messages: [{ role: 'user', content: 'split me' }],
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    const bodyText = await response.text();
+    assert.match(bodyText, /"content":"第一句。"/);
+    assert.match(bodyText, /"content":"第二句！"/);
+    assert.match(bodyText, /"content":"Third\?"/);
   } finally {
     globalThis.fetch = originalFetch;
   }

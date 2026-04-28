@@ -55,6 +55,19 @@ const DEFAULTS = {
 };
 const CHAT_COMPLETION_OBJECT = "chat.completion";
 const CHAT_COMPLETION_FINISH_REASON = "stop";
+const CHAT_COMPLETION_CHUNK_OBJECT = "chat.completion.chunk";
+const ERROR_CODE = {
+  INVALID_JSON: "INVALID_JSON",
+  MISSING_MODEL: "MISSING_MODEL",
+  MISSING_TEXT: "MISSING_TEXT",
+  UNAUTHORIZED: "UNAUTHORIZED",
+  UNSUPPORTED_CHAT_MODEL: "UNSUPPORTED_CHAT_MODEL",
+  UNSUPPORTED_TTS_MODEL: "UNSUPPORTED_TTS_MODEL",
+  UNSUPPORTED_REST_ROUTE: "UNSUPPORTED_REST_ROUTE",
+  METHOD_NOT_ALLOWED: "METHOD_NOT_ALLOWED",
+  UPSTREAM_ERROR: "UPSTREAM_ERROR",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+};
 
 const REST_API_PATH_REGEX = /^\/api\/([^/]+)\/([^/]+)\/?$/i;
 
@@ -232,7 +245,31 @@ function jsonResp(data, status = 200) {
 }
 
 function errResp(message, status = 400) {
-  return jsonResp({ error: message, status }, status);
+  return buildErrorResp({ message, status });
+}
+
+function createRequestId() {
+  return `req_${crypto.randomUUID()}`;
+}
+
+/**
+ * @param {{
+ *   message: string,
+ *   status?: number,
+ *   code?: string,
+ *   requestId?: string,
+ *   details?: unknown
+ * }} param0
+ */
+function buildErrorResp({ message, status = 400, code = ERROR_CODE.INTERNAL_ERROR, requestId = createRequestId(), details }) {
+  const payload = {
+    error: message,
+    status,
+    code,
+    request_id: requestId,
+  };
+  if (details !== undefined) payload.details = details;
+  return jsonResp(payload, status);
 }
 
 function safeJSONStringify(value) {
@@ -277,10 +314,84 @@ function buildChatCompletionResponse(model, promptText, outputText) {
   });
 }
 
+function isStreamRequested(value) {
+  return value === true || value === "true";
+}
+
+function extractTextOnly(result) {
+  return String(result?.text ?? "").trim();
+}
+
+function buildChatCompletionStreamResponse(model, textOnly) {
+  const content = String(textOnly ?? "").trim();
+  const completionId = `chatcmpl-${crypto.randomUUID()}`;
+  const created = Math.floor(Date.now() / 1000);
+  const encoder = new TextEncoder();
+
+  const chunkStart = {
+    id: completionId,
+    object: CHAT_COMPLETION_CHUNK_OBJECT,
+    created,
+    model,
+    choices: [{ index: 0, delta: { role: "assistant" }, finish_reason: null }],
+  };
+  const chunkEnd = {
+    id: completionId,
+    object: CHAT_COMPLETION_CHUNK_OBJECT,
+    created,
+    model,
+    choices: [{ index: 0, delta: {}, finish_reason: CHAT_COMPLETION_FINISH_REASON }],
+  };
+
+  const stream = new ReadableStream({
+    start(controller) {
+      controller.enqueue(encoder.encode(`data: ${JSON.stringify(chunkStart)}\n\n`));
+      const segments = splitTextForStream(content);
+      for (const segment of segments) {
+        const chunkContent = {
+          id: completionId,
+          object: CHAT_COMPLETION_CHUNK_OBJECT,
+          created,
+          model,
+          choices: [{ index: 0, delta: { content: segment }, finish_reason: null }],
+        };
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify(chunkContent)}\n\n`));
+      }
+      controller.enqueue(encoder.encode(`data: ${JSON.stringify(chunkEnd)}\n\n`));
+      controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+      controller.close();
+    },
+  });
+
+  return new Response(stream, {
+    status: 200,
+    headers: {
+      ...CORS,
+      "Content-Type": "text/event-stream; charset=utf-8",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    },
+  });
+}
+
+function splitTextForStream(text) {
+  const normalized = String(text ?? "").trim();
+  if (!normalized) return [""];
+  const segments = [];
+  const lines = normalized.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  for (const line of lines) {
+    const parts = line.match(/[^。！？.!?]+[。！？.!?]?/g) ?? [line];
+    for (const part of parts) {
+      const trimmed = part.trim();
+      if (trimmed) segments.push(trimmed);
+    }
+  }
+  return segments.length > 0 ? segments : [normalized];
+}
+
 function withTextAndRaw(text, raw) {
-  const normalizedText = String(text ?? "").trim();
   return {
-    text: normalizedText || safeJSONStringify(raw),
+    text: String(text ?? "").trim(),
     raw,
   };
 }
@@ -464,11 +575,11 @@ export default {
       if (pathname === PATH.MODELS && method === HTTP_METHOD.GET)
         return jsonResp({ object: "list", data: MODELS });
 
-      const apikey = request.headers.get("Authorization")?.replace("Bearer ", "") 
-                  || request.headers.get("X-API-Key")
-                  || url.searchParams.get("api_key");
+      const apikey = request.headers.get("Authorization")?.replace("Bearer ", "")
+        || request.headers.get("X-API-Key")
+        || url.searchParams.get("api_key");
       if (apikey !== env.API_KEY) {
-        return errResp('Unauthorization', 401);
+        return buildErrorResp({ message: "Unauthorization", status: 401, code: ERROR_CODE.UNAUTHORIZED });
       }
 
       if (isRestApiPath(pathname))
@@ -480,9 +591,9 @@ export default {
       if (pathname === PATH.SPEECH && method === HTTP_METHOD.POST)
         return await handleTTS(request);
 
-      return errResp("路径不存在，请查看 GET /v1/models 获取使用说明", 404);
+      return buildErrorResp({ message: "路径不存在，请查看 GET /v1/models 获取使用说明", status: 404, code: ERROR_CODE.UNSUPPORTED_REST_ROUTE });
     } catch (error) {
-      return errResp(`内部错误: ${error.message}`, 500);
+      return buildErrorResp({ message: `内部错误: ${error.message}`, status: 500, code: ERROR_CODE.INTERNAL_ERROR });
     }
   },
 };
@@ -491,53 +602,30 @@ export default {
 // ── Chat 路由 ─────────────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════════════════════
 
+const CHAT_MODEL_HANDLER = {
+  "google-translate": (input) => googleTranslateData(input.text, input.source_lang, input.target_lang),
+  "google-dict": (input) => googleDictData(input.text, input.source_lang, input.target_lang),
+  "youdao-dict": (input) => youdaoDictData(input.text),
+  "youdao-suggest": (input) => youdaoSuggestData(input.text, input.nums),
+  "iciba-dict": (input) => icibaDictData(input.text),
+  "iciba-suggest": (input) => icibaSuggestData(input.text, input.nums),
+  "microsoft-translate": (input) => microsoftTranslateData(input.messages, input.source_lang, input.target_lang),
+}
+
 async function handleChat(request) {
-  let body;
-  try { body = await request.json(); }
-  catch { return errResp("请求体必须是合法的 JSON"); }
+  const chatInput = await buildChatInput(request);
+  if (chatInput.error) return chatInput.error;
+  if (!chatInput.text) return buildErrorResp({ message: "缺少 text/messages 字段", status: 400, code: ERROR_CODE.MISSING_TEXT });
 
-  const { model, messages, source_lang = DEFAULTS.SOURCE_LANG, target_lang = DEFAULTS.TARGET_LANG, nums = DEFAULTS.NUMS } = body;
-
-  if (!model) return errResp("缺少 model 字段");
-
-  const text = joinContent(messages);
-  if (!text) return errResp("messages 中缺少用户消息");
+  const routeHandler = CHAT_MODEL_HANDLER[chatInput.model];
+  if (!routeHandler) return buildErrorResp({ message: `不支持的 Chat 模型: ${chatInput.model}`, status: 400, code: ERROR_CODE.UNSUPPORTED_CHAT_MODEL });
 
   try {
-    switch (model) {
-      case "google-translate": {
-        const data = await googleTranslateData(text, source_lang, target_lang);
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      case "google-dict": {
-        const data = await googleDictData(text, source_lang, target_lang);
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      case "youdao-dict": {
-        const data = await youdaoDictData(text);
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      case "youdao-suggest": {
-        const data = await youdaoSuggestData(text, Number(nums));
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      case "iciba-dict": {
-        const data = await icibaDictData(text);
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      case "iciba-suggest": {
-        const data = await icibaSuggestData(text, Number(nums));
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      case "microsoft-translate": {
-        const data = await microsoftTranslateData(messages, source_lang, target_lang);
-        return buildChatCompletionResponse(model, text, safeJSONStringify(data));
-      }
-      default:
-        return errResp(`不支持的 chat 模型: ${model}，请查看 GET /v1/models`);
-    }
+    const data = await routeHandler(chatInput);
+    if (isStreamRequested(chatInput.stream)) return buildChatCompletionStreamResponse(chatInput.model, extractTextOnly(data));
+    return buildChatCompletionResponse(chatInput.model, chatInput.text, safeJSONStringify(data));
   } catch (e) {
-    return errResp(`上游请求失败: ${e.message}`, 502);
+    return buildErrorResp({ message: `上游请求失败: ${e.message}`, status: 502, code: ERROR_CODE.UPSTREAM_ERROR });
   }
 }
 
@@ -548,12 +636,12 @@ async function handleChat(request) {
 async function handleTTS(request) {
   let body;
   try { body = await request.json(); }
-  catch { return errResp("请求体必须是合法的 JSON"); }
+  catch { return buildErrorResp({ message: "请求体必须是合法的 JSON", status: 400, code: ERROR_CODE.INVALID_JSON }); }
 
   const { model, input, voice = DEFAULTS.TARGET_LANG, speed = DEFAULTS.SPEED, type = DEFAULTS.TYPE } = body;
 
-  if (!model) return errResp("缺少 model 字段");
-  if (!input) return errResp("缺少 input 字段");
+  if (!model) return buildErrorResp({ message: "缺少 model 字段", status: 400, code: ERROR_CODE.MISSING_MODEL });
+  if (!input) return buildErrorResp({ message: "缺少 input 字段", status: 400, code: ERROR_CODE.MISSING_TEXT });
 
   try {
     switch (model) {
@@ -561,10 +649,10 @@ async function handleTTS(request) {
       case "youdao-dictvoice": return await youdaoTTS(input, Number(type));
       case "iciba-dictvoice": return await icibaTTS(input, Number(type));
       default:
-        return errResp(`不支持的 TTS 模型: ${model}，请查看 GET /v1/models`);
+        return buildErrorResp({ message: `不支持的 TTS 模型: ${model}，请查看 GET /v1/models`, status: 400, code: ERROR_CODE.UNSUPPORTED_TTS_MODEL });
     }
   } catch (e) {
-    return errResp(`上游请求失败: ${e.message}`, 502);
+    return buildErrorResp({ message: `上游请求失败: ${e.message}`, status: 502, code: ERROR_CODE.UPSTREAM_ERROR });
   }
 }
 
@@ -596,7 +684,7 @@ function normalizeText(value) {
   return value.trim();
 }
 
-async function parseOptionalJsonBody(request) {
+async function parseJsonBody(request) {
   if (request.method.toUpperCase() !== HTTP_METHOD.POST) return {};
   try {
     return await request.json();
@@ -613,31 +701,59 @@ function firstNonEmpty(values, fallback = "") {
   return fallback;
 }
 
-async function buildRestInput(request) {
-  const url = new URL(request.url);
-  const query = url.searchParams;
-  const body = await parseOptionalJsonBody(request);
-  if (body?.__invalid_json__) return { error: errResp("请求体必须是合法的 JSON") };
-
+function normalizeRequestInput({ query, body }) {
+  const parsedBody = body ?? {};
+  const text = firstNonEmpty([query.get("text"), parsedBody.text]);
+  const messages = parsedBody.messages ?? [{ content: text }];
+  const input = text || joinContent(messages);
   return {
-    text: firstNonEmpty([query.get("text"), body.text]),
-    source_lang: firstNonEmpty([query.get("source_lang"), body.source_lang], DEFAULTS.SOURCE_LANG),
-    target_lang: firstNonEmpty([query.get("target_lang"), body.target_lang], DEFAULTS.TARGET_LANG),
-    speed: safeToNumber(query.get("speed") ?? body.speed, DEFAULTS.SPEED),
-    type: safeToNumber(query.get("type") ?? body.type, DEFAULTS.TYPE),
-    nums: safeToNumber(query.get("nums") ?? body.nums, DEFAULTS.NUMS),
+    model: parsedBody.model ?? "",
+    stream: parsedBody.stream ?? false,
+    text: input,
+    messages,
+    source_lang: firstNonEmpty([query.get("source_lang"), parsedBody.source_lang], DEFAULTS.SOURCE_LANG),
+    target_lang: firstNonEmpty([query.get("target_lang"), parsedBody.target_lang], DEFAULTS.TARGET_LANG),
+    speed: safeToNumber(query.get("speed") ?? parsedBody.speed, DEFAULTS.SPEED),
+    type: safeToNumber(query.get("type") ?? parsedBody.type, DEFAULTS.TYPE),
+    nums: safeToNumber(query.get("nums") ?? parsedBody.nums, DEFAULTS.NUMS),
   };
 }
 
-function buildMicrosoftMessages(text) {
-  return [{ content: text }];
+function validateChatInput(input) {
+  if (!input.model) return buildErrorResp({ message: "缺少 model 字段", status: 400, code: ERROR_CODE.MISSING_MODEL });
+  if (!input.text) return buildErrorResp({ message: "缺少 text/messages 字段", status: 400, code: ERROR_CODE.MISSING_TEXT });
+  return null;
+}
+
+function validateRestInput(input) {
+  if (!input.text) return buildErrorResp({ message: "缺少 text 字段", status: 400, code: ERROR_CODE.MISSING_TEXT });
+  return null;
+}
+
+async function buildRequestInput(request, mode) {
+  const url = new URL(request.url);
+  const query = url.searchParams;
+  const body = await parseJsonBody(request);
+  if (body?.__invalid_json__) return { error: buildErrorResp({ message: "请求体必须是合法的 JSON", status: 400, code: ERROR_CODE.INVALID_JSON }) };
+  const input = normalizeRequestInput({ query, body });
+  const validationError = mode === "chat" ? validateChatInput(input) : validateRestInput(input);
+  if (validationError) return { error: validationError };
+  return input;
+}
+
+async function buildChatInput(request) {
+  return await buildRequestInput(request, "chat");
+}
+
+async function buildRestInput(request) {
+  return await buildRequestInput(request, "rest");
 }
 
 const REST_ROUTE_HANDLER = {
   "google.tts": (input) => googleTTS(input.text, input.target_lang, input.speed),
   "google.translate": (input) => googleTranslate(input.text, input.source_lang, input.target_lang),
   "google.dict": (input) => googleDict(input.text, input.source_lang, input.target_lang),
-  "microsoft.translate": (input) => microsoftTranslate(buildMicrosoftMessages(input.text), input.source_lang, input.target_lang),
+  "microsoft.translate": (input) => microsoftTranslate(input.messages, input.source_lang, input.target_lang),
   "iciba.tts": (input) => icibaTTS(input.text, input.type),
   "iciba.dict": (input) => icibaDict(input.text),
   "iciba.suggest": (input) => icibaSuggest(input.text, input.nums),
@@ -649,23 +765,22 @@ const REST_ROUTE_HANDLER = {
 async function handleRestApi(request, pathname) {
   const method = request.method.toUpperCase();
   if (method !== HTTP_METHOD.GET && method !== HTTP_METHOD.POST)
-    return errResp("REST API 仅支持 GET/POST", 405);
+    return buildErrorResp({ message: "REST API 仅支持 GET/POST", status: 405, code: ERROR_CODE.METHOD_NOT_ALLOWED });
 
   const route = matchRestApiPath(pathname);
-  if (!route) return errResp("不支持的 REST API 路由", 404);
+  if (!route) return buildErrorResp({ message: "不支持的 REST API 路由", status: 404, code: ERROR_CODE.UNSUPPORTED_REST_ROUTE });
 
   const routeKey = `${route.provider}.${route.action}`;
   const routeHandler = REST_ROUTE_HANDLER[routeKey];
-  if (!routeHandler) return errResp(`不支持的 REST API 路由: /api/${route.provider}/${route.action}`, 404);
+  if (!routeHandler) return buildErrorResp({ message: `不支持的 REST API 路由: /api/${route.provider}/${route.action}`, status: 404, code: ERROR_CODE.UNSUPPORTED_REST_ROUTE });
 
   const restInput = await buildRestInput(request);
   if (restInput.error) return restInput.error;
-  if (!restInput.text) return errResp("缺少 text 字段");
 
   try {
     return await routeHandler(restInput);
   } catch (e) {
-    return errResp(`上游请求失败: ${e.message}`, 502);
+    return buildErrorResp({ message: `上游请求失败: ${e.message}`, status: 502, code: ERROR_CODE.UPSTREAM_ERROR });
   }
 }
 
@@ -742,6 +857,14 @@ async function youdaoDictData(word) {
   );
   await assertResponseIsOK(res, "有道词典 HTTP");
   const raw = await res.json();
+  raw.oxford = undefined;
+  raw.oxfordAdvance = undefined;
+  raw.oxfordAdvanceHtml = undefined;
+  raw.oxfordAdvanceTen = undefined;
+  raw.webster = undefined;
+  raw.wordElaboration = undefined;
+  raw.senior = undefined;
+
   return withTextAndRaw(formatYoudaoDictText(raw), raw);
 }
 
