@@ -97,7 +97,7 @@ test('POST /v1/audio/speech 的 google-tts 在非法 voice 时回退为 en', asy
       body: JSON.stringify({
         model: 'google-tts',
         input: 'hello',
-        voice: 'not-a-lang-$$$$',
+        voice: 'alloy',
       }),
     });
     const response = await worker.fetch(request, createEnv(), {});

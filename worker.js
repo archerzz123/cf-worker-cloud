@@ -759,7 +759,7 @@ async function handleTTS(request) {
 
   try {
     switch (model) {
-      case "google-tts": return await googleTTS(input, normalizeLang(voice), Number(speed));
+      case "google-tts": return await googleTTS(input, voice, Number(speed));
       case "youdao-dictvoice": return await youdaoTTS(input, Number(type));
       case "iciba-dictvoice": return await icibaTTS(input, Number(type));
       default:
@@ -798,18 +798,37 @@ function normalizeText(value) {
   return value.trim();
 }
 
-function normalizeLang(lang) {
-  let value = normalizeText(lang);
-  if (!value) return DEFAULTS.TARGET_LANG;
+// openai voice list
+const EN_VOICES = new Set([
+  "alloy",
+  "ash",
+  "ballad",
+  "coral",
+  "echo",
+  "fable",
+  "nova",
+  "sage",
+  "shimmer",
+  "verse",
+  "marin",
+  "cedar"
+]);
 
-  // 常见容错
-  value = value.replace(/_/g, '-');
+function isValidLanguageCode(value) {
+  const lang = normalizeText(value);
+  if (!lang) return false;
+  if (EN_VOICES.has(lang)) return false;
+  return /^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$/.test(lang);
+}
 
+function normalizeLanguage(voice, fallback = DEFAULTS.TARGET_LANG) {
   try {
-    const [normalized] = Intl.getCanonicalLocales(value);
-    return normalized || DEFAULTS.TARGET_LANG;
+    const value = voice.replace(/_/g, '-');
+    if (!isValidLanguageCode(value)) return fallback;
+    const [normalized] = Intl.getCanonicalLocales(normalizeText(value));
+    return normalized || fallback;
   } catch {
-    return DEFAULTS.TARGET_LANG;
+    return fallback;
   }
 }
 
@@ -835,14 +854,16 @@ function normalizeRequestInput({ query, body }) {
   const text = firstNonEmpty([query.get("text"), parsedBody.text]);
   const messages = parsedBody.messages ?? [{ content: text }];
   const input = text || joinContent(messages);
+  const source_lang = normalizeLanguage(firstNonEmpty([query.get("source_lang"), parsedBody.source_lang]), DEFAULTS.SOURCE_LANG);
+  const target_lang = normalizeLanguage(firstNonEmpty([query.get("target_lang"), parsedBody.target_lang]), DEFAULTS.TARGET_LANG);
   return {
     model: parsedBody.model ?? "",
     stream: parsedBody.stream ?? false,
     stream_options: parsedBody.stream_options ?? {},
     text: input,
     messages,
-    source_lang: firstNonEmpty([query.get("source_lang"), parsedBody.source_lang], DEFAULTS.SOURCE_LANG),
-    target_lang: firstNonEmpty([query.get("target_lang"), parsedBody.target_lang], DEFAULTS.TARGET_LANG),
+    source_lang,
+    target_lang,
     speed: safeToNumber(query.get("speed") ?? parsedBody.speed, DEFAULTS.SPEED),
     type: safeToNumber(query.get("type") ?? parsedBody.type, DEFAULTS.TYPE),
     nums: safeToNumber(query.get("nums") ?? parsedBody.nums, DEFAULTS.NUMS),
@@ -919,9 +940,10 @@ async function handleRestApi(request, pathname) {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 async function googleTTS(text, lang, speed) {
+  const tl = normalizeLanguage(lang, DEFAULTS.TARGET_LANG);
   const url =
     `https://translate.googleapis.com/translate_tts` +
-    `?ie=UTF-8&tl=${encodeURIComponent(lang)}&client=tw-ob` +
+    `?ie=UTF-8&tl=${encodeURIComponent(tl)}&client=tw-ob` +
     `&q=${encodeURIComponent(text)}&ttsspeed=${speed}`;
 
   const res = await fetch(url, { headers: fakeBrowserHeaders("google") });
