@@ -1,0 +1,734 @@
+{
+    "sentences": [
+        {
+            "trans": "做",
+            "orig": "do",
+            "backend": 10
+        },
+        {
+            "translit": "Zuò",
+            "src_translit": "do͞o"
+        }
+    ],
+    "dict": [
+        {
+            "pos": "verb",
+            "terms": [
+                "做",
+                "办",
+                "干",
+                "进行",
+                "作",
+                "行",
+                "从事",
+                "搞",
+                "弄",
+                "演",
+                "操",
+                "闹",
+                "胹"
+            ],
+            "entry": [
+                {
+                    "word": "做",
+                    "reverse_translation": [
+                        "do",
+                        "make",
+                        "be",
+                        "act",
+                        "prepare",
+                        "become"
+                    ],
+                    "score": 0.2865048
+                },
+                {
+                    "word": "办",
+                    "reverse_translation": [
+                        "do",
+                        "run",
+                        "manage",
+                        "handle",
+                        "deal with",
+                        "set up"
+                    ],
+                    "score": 0.026235942
+                },
+                {
+                    "word": "干",
+                    "reverse_translation": [
+                        "dry",
+                        "do",
+                        "work",
+                        "have to do with",
+                        "be implicated in",
+                        "offend"
+                    ],
+                    "score": 0.0050860695
+                },
+                {
+                    "word": "进行",
+                    "reverse_translation": [
+                        "conduct",
+                        "carry out",
+                        "carry on",
+                        "do",
+                        "execute",
+                        "advance"
+                    ],
+                    "score": 0.004703845
+                },
+                {
+                    "word": "作",
+                    "reverse_translation": [
+                        "make",
+                        "do",
+                        "become",
+                        "pretend",
+                        "compose",
+                        "affect"
+                    ],
+                    "score": 0.002638618
+                },
+                {
+                    "word": "行",
+                    "reverse_translation": [
+                        "do",
+                        "travel",
+                        "walk",
+                        "go"
+                    ],
+                    "score": 0.0025574362
+                },
+                {
+                    "word": "从事",
+                    "reverse_translation": [
+                        "engage",
+                        "do",
+                        "undertake",
+                        "deal with",
+                        "embark",
+                        "handle"
+                    ],
+                    "score": 0.001390454
+                },
+                {
+                    "word": "搞",
+                    "reverse_translation": [
+                        "do",
+                        "make",
+                        "get",
+                        "set up",
+                        "go in",
+                        "carry on"
+                    ],
+                    "score": 0.0009556441
+                },
+                {
+                    "word": "弄",
+                    "reverse_translation": [
+                        "get",
+                        "do",
+                        "play",
+                        "fetch",
+                        "handle",
+                        "manage"
+                    ],
+                    "score": 0.00009315461
+                },
+                {
+                    "word": "演",
+                    "reverse_translation": [
+                        "play",
+                        "act",
+                        "perform",
+                        "do",
+                        "evolve",
+                        "practice"
+                    ],
+                    "score": 0.00005921267
+                },
+                {
+                    "word": "操",
+                    "reverse_translation": [
+                        "exercise",
+                        "speak",
+                        "hold",
+                        "drill",
+                        "do",
+                        "grip"
+                    ],
+                    "score": 0.000052255
+                },
+                {
+                    "word": "闹",
+                    "reverse_translation": [
+                        "be troubled",
+                        "noise",
+                        "do",
+                        "make a noise",
+                        "suffer",
+                        "disturb"
+                    ],
+                    "score": 0.0000030416056
+                },
+                {
+                    "word": "胹",
+                    "reverse_translation": [
+                        "cook",
+                        "parch",
+                        "boil",
+                        "boil soft",
+                        "coddle",
+                        "do"
+                    ],
+                    "score": 4.6644533e-7
+                }
+            ],
+            "base_form": "do",
+            "pos_enum": 2
+        },
+        {
+            "pos": "noun",
+            "terms": [
+                "欺诈",
+                "使为难"
+            ],
+            "entry": [
+                {
+                    "word": "欺诈",
+                    "reverse_translation": [
+                        "fraudulence",
+                        "fraudulency",
+                        "fakement",
+                        "fob",
+                        "do"
+                    ],
+                    "score": 9.422455e-7
+                },
+                {
+                    "word": "使为难",
+                    "reverse_translation": [
+                        "do"
+                    ]
+                }
+            ],
+            "base_form": "do",
+            "pos_enum": 1
+        }
+    ],
+    "src": "en",
+    "alternative_translations": [
+        {
+            "src_phrase": "do",
+            "alternative": [
+                {
+                    "word_postproc": "做",
+                    "has_preceding_space": true,
+                    "attach_to_next_token": false,
+                    "backends": [
+                        10
+                    ]
+                },
+                {
+                    "word_postproc": "做什么",
+                    "has_preceding_space": true,
+                    "attach_to_next_token": false,
+                    "backends": [
+                        8
+                    ]
+                }
+            ],
+            "srcunicodeoffsets": [
+                {
+                    "begin": 0,
+                    "end": 2
+                }
+            ],
+            "raw_src_segment": "do",
+            "start_pos": 0,
+            "end_pos": 0
+        }
+    ],
+    "confidence": 0.88552636,
+    "spell": {},
+    "ld_result": {
+        "srclangs": [
+            "en"
+        ],
+        "srclangs_confidences": [
+            0.88552636
+        ],
+        "extended_srclangs": [
+            "en"
+        ]
+    },
+    "synsets": [
+        {
+            "pos": "verb",
+            "entry": [
+                {
+                    "synonym": [
+                        "effectuate"
+                    ],
+                    "definition_id": "m_en_gbus0286760.015",
+                    "label_info": {
+                        "register": [
+                            "rare"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "carry out",
+                        "undertake",
+                        "discharge",
+                        "execute",
+                        "perpetrate",
+                        "perform",
+                        "accomplish",
+                        "implement",
+                        "achieve",
+                        "complete",
+                        "finish",
+                        "conclude",
+                        "bring about",
+                        "engineer",
+                        "effect",
+                        "realize"
+                    ],
+                    "definition_id": "m_en_gbus0286760.015"
+                },
+                {
+                    "synonym": [
+                        "pull off"
+                    ],
+                    "definition_id": "m_en_gbus0286760.015",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "prepare",
+                        "make",
+                        "get ready",
+                        "fix",
+                        "produce",
+                        "see to",
+                        "arrange",
+                        "organize",
+                        "be responsible for",
+                        "be in charge of",
+                        "look after",
+                        "take on"
+                    ],
+                    "definition_id": "m_en_gbus0286760.022"
+                },
+                {
+                    "synonym": [
+                        "style",
+                        "arrange",
+                        "adjust",
+                        "groom",
+                        "preen",
+                        "primp",
+                        "prink",
+                        "brush",
+                        "comb",
+                        "wash",
+                        "dry",
+                        "cut"
+                    ],
+                    "definition_id": "m_en_gbus0286760.022"
+                },
+                {
+                    "synonym": [
+                        "fix"
+                    ],
+                    "definition_id": "m_en_gbus0286760.022",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "paint",
+                        "draw",
+                        "sketch",
+                        "make",
+                        "create",
+                        "produce",
+                        "turn out",
+                        "fashion",
+                        "design",
+                        "fabricate",
+                        "manufacture"
+                    ],
+                    "definition_id": "m_en_gbus0286760.024"
+                },
+                {
+                    "synonym": [
+                        "knock up",
+                        "knock together",
+                        "knock off"
+                    ],
+                    "definition_id": "m_en_gbus0286760.024",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "work out",
+                        "figure out",
+                        "calculate",
+                        "add up",
+                        "solve",
+                        "resolve",
+                        "puzzle out",
+                        "decipher",
+                        "tot up"
+                    ],
+                    "definition_id": "m_en_gbus0286760.025"
+                },
+                {
+                    "synonym": [
+                        "do for a living",
+                        "work at",
+                        "be employed as",
+                        "earn a living as/at",
+                        "what is …'s job?"
+                    ],
+                    "definition_id": "m_en_gbus0286760.027"
+                },
+                {
+                    "synonym": [
+                        "put on",
+                        "present",
+                        "produce",
+                        "give",
+                        "perform in",
+                        "act in",
+                        "play in",
+                        "take part in",
+                        "participate in",
+                        "be involved in",
+                        "be engaged in"
+                    ],
+                    "definition_id": "m_en_gbus0286760.029"
+                },
+                {
+                    "synonym": [
+                        "travel",
+                        "journey",
+                        "go",
+                        "cover",
+                        "travel over",
+                        "pass over",
+                        "journey over",
+                        "traverse",
+                        "cross",
+                        "range over",
+                        "put behind one",
+                        "get under one's belt",
+                        "attain",
+                        "achieve",
+                        "log"
+                    ],
+                    "definition_id": "m_en_gbus0286760.039"
+                },
+                {
+                    "synonym": [
+                        "chalk up",
+                        "notch up"
+                    ],
+                    "definition_id": "m_en_gbus0286760.039",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "drive at",
+                        "travel at",
+                        "go at",
+                        "proceed at",
+                        "move at"
+                    ],
+                    "definition_id": "m_en_gbus0286760.040"
+                },
+                {
+                    "synonym": [
+                        "visit",
+                        "tour",
+                        "sightsee in",
+                        "look around",
+                        "take in the sights of"
+                    ],
+                    "definition_id": "m_en_gbus0286760.043",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "act",
+                        "behave",
+                        "conduct oneself",
+                        "acquit oneself"
+                    ],
+                    "definition_id": "m_en_gbus0286760.050"
+                },
+                {
+                    "synonym": [
+                        "comport oneself",
+                        "deport oneself"
+                    ],
+                    "definition_id": "m_en_gbus0286760.050",
+                    "label_info": {
+                        "register": [
+                            "rare"
+                        ]
+                    }
+                },
+                {
+                    "synonym": [
+                        "get on",
+                        "get along",
+                        "progress",
+                        "fare",
+                        "make out",
+                        "get by",
+                        "manage",
+                        "cope",
+                        "survive",
+                        "succeed",
+                        "prosper"
+                    ],
+                    "definition_id": "m_en_gbus0286760.051"
+                },
+                {
+                    "synonym": [
+                        "suffice",
+                        "be adequate",
+                        "be satisfactory",
+                        "be acceptable",
+                        "be good enough",
+                        "be of use",
+                        "fill the bill",
+                        "fit the bill",
+                        "answer the purpose",
+                        "serve the purpose",
+                        "meet one's needs",
+                        "pass muster",
+                        "be enough",
+                        "be sufficient"
+                    ],
+                    "definition_id": "m_en_gbus0286760.055"
+                },
+                {
+                    "synonym": [
+                        "make the grade",
+                        "cut the mustard",
+                        "be up to snuff"
+                    ],
+                    "definition_id": "m_en_gbus0286760.055",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                }
+            ],
+            "base_form": "do",
+            "pos_enum": 2
+        }
+    ],
+    "definitions": [
+        {
+            "pos": "verb",
+            "entry": [
+                {
+                    "gloss": "perform (an action, the precise nature of which is often unspecified).",
+                    "definition_id": "m_en_gbus0286760.015",
+                    "example": "very little work has been done in this field"
+                },
+                {
+                    "gloss": "achieve or complete.",
+                    "definition_id": "m_en_gbus0286760.038",
+                    "example": "I never really got the chance to finish school or do my exams"
+                },
+                {
+                    "gloss": "act or behave in a specified way.",
+                    "definition_id": "m_en_gbus0286760.050",
+                    "example": "they are free to do as they please"
+                },
+                {
+                    "gloss": "be suitable or acceptable.",
+                    "definition_id": "m_en_gbus0286760.055",
+                    "example": "if he's anything like you, he'll do"
+                },
+                {
+                    "gloss": "beat up or kill.",
+                    "definition_id": "m_en_gbus0286760.058",
+                    "example": "he was the guy who did Maranzano",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "gloss": "used before a verb (except be, can, may, ought, shall, will ) in questions and negative statements.",
+                    "definition_id": "m_en_gbus0286760.066",
+                    "example": "do you have any pets?"
+                },
+                {
+                    "gloss": "used to refer to a verb already mentioned.",
+                    "definition_id": "m_en_gbus0286760.073",
+                    "example": "he looks better than he did before"
+                },
+                {
+                    "gloss": "used to give emphasis to a positive verb.",
+                    "definition_id": "m_en_gbus0286760.075",
+                    "example": "I do want to act on this"
+                },
+                {
+                    "gloss": "used with inversion of a subject and verb when an adverbial phrase begins a clause for emphasis.",
+                    "definition_id": "m_en_gbus0286760.078",
+                    "example": "only rarely did they succumb"
+                }
+            ],
+            "base_form": "do",
+            "pos_enum": 2
+        },
+        {
+            "pos": "noun",
+            "entry": [
+                {
+                    "gloss": "excrement.",
+                    "definition_id": "m_en_gbus0286760.109",
+                    "example": "the air was rancid with the smell of donkey doo",
+                    "label_info": {
+                        "register": [
+                            "informal"
+                        ]
+                    }
+                },
+                {
+                    "gloss": "(in solmization) the first and eighth note of a major scale.",
+                    "definition_id": "m_en_gbus1182041.006",
+                    "label_info": {
+                        "subject": [
+                            "Music"
+                        ]
+                    }
+                }
+            ],
+            "base_form": "do",
+            "pos_enum": 1
+        },
+        {
+            "pos": "abbreviation",
+            "entry": [
+                {
+                    "gloss": "ditto.",
+                    "definition_id": "m_en_gbus0286750.004",
+                    "label_info": {
+                        "register": [
+                            "dated"
+                        ]
+                    }
+                }
+            ],
+            "base_form": "do",
+            "pos_enum": 6
+        }
+    ],
+    "examples": {
+        "example": [
+            {
+                "text": "they are free to \u003Cb\u003Edo\u003C/b\u003E as they please",
+                "definition_id": "m_en_gbus0286760.050"
+            },
+            {
+                "text": "I never really got the chance to finish school or \u003Cb\u003Edo\u003C/b\u003E my exams",
+                "definition_id": "m_en_gbus0286760.038"
+            },
+            {
+                "text": "I \u003Cb\u003Edo\u003C/b\u003E want to act on this",
+                "definition_id": "m_en_gbus0286760.075"
+            },
+            {
+                "text": "the old version will \u003Cb\u003Edo\u003C/b\u003E for now",
+                "definition_id": "m_en_gbus0286760.055"
+            },
+            {
+                "text": "what can I \u003Cb\u003Edo\u003C/b\u003E for you?",
+                "definition_id": "m_en_gbus0286760.015"
+            },
+            {
+                "text": "this would be an easy place to \u003Cb\u003Edo\u003C/b\u003E and there was plenty of money lying around",
+                "definition_id": "m_en_gbus0286760.060"
+            },
+            {
+                "text": "if he's anything like you, he'll \u003Cb\u003Edo\u003C/b\u003E",
+                "definition_id": "m_en_gbus0286760.055"
+            },
+            {
+                "text": "what a lot there is to \u003Cb\u003Edo\u003C/b\u003E!",
+                "definition_id": "m_en_gbus0286760.015"
+            },
+            {
+                "text": "the barber said he'd \u003Cb\u003Edo\u003C/b\u003E me next",
+                "definition_id": "m_en_gbus0286760.033"
+            },
+            {
+                "text": "\u003Cb\u003Edo\u003C/b\u003E tell me!",
+                "definition_id": "m_en_gbus0286760.076"
+            },
+            {
+                "text": "I never seem to say the right thing, \u003Cb\u003Edo\u003C/b\u003E I?",
+                "definition_id": "m_en_gbus0286760.070"
+            },
+            {
+                "text": "\u003Cb\u003Edo\u003C/b\u003E you have any pets?",
+                "definition_id": "m_en_gbus0286760.066"
+            },
+            {
+                "text": "as the cops get smarter, so \u003Cb\u003Edo\u003C/b\u003E the crooks",
+                "definition_id": "m_en_gbus0286760.073"
+            },
+            {
+                "text": "it takes them longer to \u003Cb\u003Edo\u003C/b\u003E their hair than me",
+                "definition_id": "m_en_gbus0286760.022"
+            },
+            {
+                "text": "the walk will \u003Cb\u003Edo\u003C/b\u003E me good",
+                "definition_id": "m_en_gbus0286760.052"
+            },
+            {
+                "text": "a couple of bucks'll \u003Cb\u003Edo\u003C/b\u003E me",
+                "definition_id": "m_en_gbus0286760.055"
+            },
+            {
+                "text": "\u003Cb\u003Edo\u003C/b\u003E not forget",
+                "definition_id": "m_en_gbus0286760.071"
+            },
+            {
+                "text": "he decided to \u003Cb\u003Edo\u003C/b\u003E her a favor",
+                "definition_id": "m_en_gbus0286760.024"
+            }
+        ]
+    }
+}

@@ -1,0 +1,2816 @@
+{
+    "web_trans": {
+        "web-translation": [
+            {
+                "@same": "true",
+                "key": "DO",
+                "key-speech": "DO",
+                "trans": [
+                    {
+                        "summary": {
+                            "line": [
+                                "...楚的知道硝化作用和反硝化作用基本的区别在于一个是在有氧的条件下进行，一个是在缺氧的情况下进行，那么反应池中的DO（溶解氧）就是非常重要的一个控制参数了。"
+                            ]
+                        },
+                        "value": "溶解氧(Dissolved Oxygen)",
+                        "support": 3364,
+                        "url": ""
+                    },
+                    {
+                        "summary": {
+                            "line": [
+                                "S是标准(Standard),即企业为提高产品质量编制出的各种质量体系 文件; D是<b>执行</b>(Do),即<b>执行</b>质量体系文件; C是检查(Check),即质量体系的内容审核和各种检查; A是总结(Action),即通过对质量体系的评审,做出相应处置."
+                            ]
+                        },
+                        "value": "执行",
+                        "support": 1650,
+                        "url": ""
+                    },
+                    {
+                        "summary": {
+                            "line": [
+                                "...（Plan）：首先，城市通过运用相关指标对该城市的空气质量和空气质量管理的现状进行评估，从而有一个初步的综合了解； <b>实施</b>（Do）：针对指标评估的结果，通过运用指标体系中的行动指南和措施清单，指导城市采取有效措施，从政策和管理的层面提高空气质量管理的..."
+                            ]
+                        },
+                        "value": "实施",
+                        "support": 1015,
+                        "url": ""
+                    },
+                    {
+                        "summary": {
+                            "line": [
+                                "...尼加共和国的顾客朋友们需要注意了,最近接到<b>多米尼加共和国</b>海关规定通知:即日起寄非文件类货物(即有包裹)运到<b>多米尼加共和国</b>(DO)的货件必.."
+                            ]
+                        },
+                        "value": "多米尼加共和国",
+                        "support": 904,
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "key": "Jeet Kune Do",
+                "key-speech": "Jeet+Kune+Do",
+                "trans": [
+                    {
+                        "value": "截拳道"
+                    },
+                    {
+                        "value": "截拳讲"
+                    },
+                    {
+                        "value": "截拳道德语"
+                    },
+                    {
+                        "value": "跆拳道"
+                    }
+                ]
+            },
+            {
+                "key": "do away with",
+                "key-speech": "do+away+with",
+                "trans": [
+                    {
+                        "value": "废除"
+                    },
+                    {
+                        "value": "除去"
+                    },
+                    {
+                        "value": "弄死"
+                    },
+                    {
+                        "value": "去掉"
+                    }
+                ]
+            },
+            {
+                "key": "do wrong",
+                "key-speech": "do+wrong",
+                "trans": [
+                    {
+                        "value": "做错"
+                    },
+                    {
+                        "value": "做坏事"
+                    },
+                    {
+                        "value": "作恶"
+                    },
+                    {
+                        "value": "做错事"
+                    }
+                ]
+            },
+            {
+                "key": "I Do",
+                "key-speech": "I+Do",
+                "trans": [
+                    {
+                        "value": "我愿意"
+                    },
+                    {
+                        "value": "君子好逑"
+                    },
+                    {
+                        "value": "我会的"
+                    },
+                    {
+                        "value": "全球婚戒典范"
+                    }
+                ]
+            },
+            {
+                "key": "do one's best",
+                "key-speech": "do+one%27s+best",
+                "trans": [
+                    {
+                        "value": "不遗余力"
+                    },
+                    {
+                        "value": "尽力"
+                    },
+                    {
+                        "value": "尽最大努力"
+                    },
+                    {
+                        "value": "尽最大的努力"
+                    }
+                ]
+            },
+            {
+                "key": "do over",
+                "key-speech": "do+over",
+                "trans": [
+                    {
+                        "value": "重做"
+                    },
+                    {
+                        "value": "一年之初"
+                    }
+                ]
+            },
+            {
+                "key": "Just Do it",
+                "key-speech": "Just+Do+it",
+                "trans": [
+                    {
+                        "value": "只管去做"
+                    },
+                    {
+                        "value": "想做就做"
+                    },
+                    {
+                        "value": "尽管去做"
+                    },
+                    {
+                        "value": "做就是了"
+                    }
+                ]
+            },
+            {
+                "key": "Jeon Do-yeon",
+                "key-speech": "Jeon+Do-yeon",
+                "trans": [
+                    {
+                        "value": "全度妍"
+                    },
+                    {
+                        "value": "女主角全度妍"
+                    },
+                    {
+                        "value": "合演全度妍"
+                    }
+                ]
+            },
+            {
+                "key": "do homework",
+                "key-speech": "do+homework",
+                "trans": [
+                    {
+                        "value": "做作业"
+                    },
+                    {
+                        "value": "做家庭作业"
+                    },
+                    {
+                        "value": "做功课"
+                    },
+                    {
+                        "value": "准备工作"
+                    }
+                ]
+            }
+        ]
+    },
+    "pic_dict": {
+        "pic": [
+            {
+                "image": "https://ydlunacommon-cdn.nosdn.127.net/0881c58710f088df0fa17008a7530fde.jpg?",
+                "host": "",
+                "url": "https://ydlunacommon-cdn.nosdn.127.net/0881c58710f088df0fa17008a7530fde.jpg?"
+            }
+        ]
+    },
+    "video_sents": {
+        "sents_data": [
+            {
+                "video_cover": "https://ydschool-video.nosdn.127.net/b8324aa0-3bd7-4de7-84ec-bad303e57e3c.jpg",
+                "contributor": "Gerd Leonhard",
+                "subtitle_srt": "1\n00:00:00,000 --> 00:00:02,790\nAnd if we <font color=#FF3D48>do</font> it, how <font color=#FF3D48>do</font> we deal with the consequences?\n\n",
+                "id": 9615,
+                "video": "https://ydschool-video.nosdn.127.net/b9286983-73f8-447c-a398-e8b2167fecaf.mp4"
+            },
+            {
+                "video_cover": "https://ydschool-video.nosdn.127.net/849c4b6b-07da-426d-8212-94c78649cbc5.jpg",
+                "contributor": "Cambridge Law Faculty",
+                "subtitle_srt": "1\n00:00:00,000 --> 00:00:02,490\nWe <font color=#FF3D48>do</font> study literature.\n\n2\n00:00:02,640 --> 00:00:05,160\nWe <font color=#FF3D48>do</font> study history.\n\n",
+                "id": 13710,
+                "video": "https://ydschool-video.nosdn.127.net/80650001-7988-4c78-8654-bf43c398741c.mp4"
+            },
+            {
+                "video_cover": "https://ydschool-video.nosdn.127.net/67d78021-ac8e-453e-847f-54a64244a8af.jpg",
+                "contributor": "Gerd Leonhard",
+                "subtitle_srt": "1\n00:00:00,000 --> 00:00:04,510\nHow <font color=#FF3D48>do</font> we change, how we look at the world, what <font color=#FF3D48>do</font> we understand about the future.\n\n",
+                "id": 9279,
+                "video": "https://ydschool-video.nosdn.127.net/6af9fad5-73ff-40ca-ae9d-cc755022156d.mp4"
+            },
+            {
+                "video_cover": "https://ydschool-video.nosdn.127.net/d10cb924-17ae-4a99-9693-c17de06c6d5c.jpg",
+                "contributor": "Cambridge Law Faculty",
+                "subtitle_srt": "1\n00:00:00,000 --> 00:00:03,150\nWe just happen to <font color=#FF3D48>do</font> it in our spare time.\n\n2\n00:00:03,330 --> 00:00:05,910\nWe <font color=#FF3D48>do</font> study languages.\n\n",
+                "id": 13709,
+                "video": "https://ydschool-video.nosdn.127.net/2ab13b46-fed3-4d7f-8f46-f8f93995d6cb.mp4"
+            },
+            {
+                "video_cover": "https://ydschool-video.nosdn.127.net/65cddf18-393f-40c0-a9a0-2c081e17b2d2.jpg",
+                "contributor": "Carlos Roberto",
+                "subtitle_srt": "1\n00:00:00,000 --> 00:00:02,160\nIt's very easy to <font color=#FF3D48>do</font> and maintain as well.\n\n2\n00:00:02,160 --> 00:00:03,300\nYou don't necessarily have to <font color=#FF3D48>do</font> much.\n\n",
+                "id": 6254,
+                "video": "https://ydschool-video.nosdn.127.net/785273cc-3fc3-49e3-8add-eb550e929922.mp4"
+            }
+        ],
+        "word_info": {
+            "return-phrase": "do",
+            "sense": [
+                "v. 做，干，办（某事）",
+                "aux. 与动词连用构成否定句和疑问句；用于构成疑问尾句；用于避免重复某一动词",
+                "n. 聚会，社交活动；要求"
+            ]
+        }
+    },
+    "simple": {
+        "query": "do",
+        "word": [
+            {
+                "usphone": "duː; də",
+                "ukphone": "duː; də",
+                "ukspeech": "do&type=1",
+                "return-phrase": "do",
+                "multiPhone": {
+                    "uk": [
+                        {
+                            "phone": "duː",
+                            "pos": [
+                                "n",
+                                "v",
+                                "aux"
+                            ],
+                            "speech": "do&phonetic=duː&type=1"
+                        },
+                        {
+                            "phone": "dəʊ",
+                            "pos": [
+                                "n"
+                            ],
+                            "speech": "do&phonetic=dəʊ&type=1"
+                        },
+                        {
+                            "phone": "də",
+                            "pos": [
+                                "aux"
+                            ],
+                            "speech": "do&phonetic=də&type=1"
+                        },
+                        {
+                            "phone": "du",
+                            "pos": [
+                                "aux"
+                            ],
+                            "speech": "do&phonetic=du&type=1"
+                        }
+                    ],
+                    "us": [
+                        {
+                            "phone": "duː",
+                            "pos": [
+                                "n",
+                                "v",
+                                "aux"
+                            ],
+                            "speech": "do&phonetic=duː&type=2"
+                        },
+                        {
+                            "phone": "doʊ",
+                            "pos": [
+                                "n"
+                            ],
+                            "speech": "do&phonetic=doʊ&type=2"
+                        },
+                        {
+                            "phone": "də",
+                            "pos": [
+                                "aux"
+                            ],
+                            "speech": "do&phonetic=də&type=2"
+                        },
+                        {
+                            "phone": "du",
+                            "pos": [
+                                "aux"
+                            ],
+                            "speech": "do&phonetic=du&type=2"
+                        }
+                    ]
+                },
+                "usspeech": "do&type=2",
+                "collegeExamVoice": {
+                    "speechWord": "do"
+                }
+            }
+        ]
+    },
+    "phrs": {
+        "word": "do",
+        "phrs": [
+            {
+                "headword": "do a",
+                "translation": "[口语]仿效，模仿，学…的样子",
+                "source": "21世纪"
+            },
+            {
+                "headword": "do well",
+                "translation": "做得好；进展好"
+            },
+            {
+                "headword": "do so",
+                "translation": "如此做"
+            },
+            {
+                "headword": "do in",
+                "translation": "使精疲力竭"
+            },
+            {
+                "headword": "do right",
+                "translation": "做得对"
+            },
+            {
+                "headword": "do it all",
+                "translation": "服无期徒刑；多才多艺；包办一切"
+            },
+            {
+                "headword": "do wrong",
+                "translation": "v. 作恶"
+            },
+            {
+                "headword": "have to do with",
+                "translation": "与…有关"
+            },
+            {
+                "headword": "make do",
+                "translation": "凑合着用；以…权充；设法达成"
+            },
+            {
+                "headword": "have done with",
+                "translation": "做完；和…无关"
+            },
+            {
+                "headword": "do by",
+                "translation": "对待"
+            },
+            {
+                "headword": "do well for oneself",
+                "translation": "[口语]兴旺，发达，昌盛，成功；变得富裕起来；改善自己的社会地位",
+                "source": "21世纪"
+            },
+            {
+                "headword": "do well for",
+                "translation": "获得大量的…；有很多的…供应，得到…充足的供给",
+                "source": "21世纪"
+            },
+            {
+                "headword": "do one's bit",
+                "translation": "尽自己的一份力量"
+            },
+            {
+                "headword": "do up",
+                "translation": "整理；刷新；修缮；使精疲力尽"
+            },
+            {
+                "headword": "do or die",
+                "translation": "决一死战"
+            },
+            {
+                "headword": "nothing doing",
+                "translation": "不行；办不到"
+            },
+            {
+                "headword": "do it up",
+                "translation": "[美国俚语]干净利落",
+                "source": "21世纪"
+            },
+            {
+                "headword": "do to death",
+                "translation": "◎杀死；处死；谋杀",
+                "source": "21世纪"
+            },
+            {
+                "headword": "dos and don'ts",
+                "translation": "执政党与在野党；注意事项，行为准则"
+            }
+        ]
+    },
+    "syno": {
+        "synos": [
+            {
+                "pos": "n.",
+                "ws": [
+                    "requirement",
+                    "provision",
+                    "need",
+                    "desire",
+                    "demand"
+                ],
+                "tran": "要求；规定；C大调音阶中的第一音"
+            },
+            {
+                "pos": "vt.",
+                "ws": [
+                    "accomplish",
+                    "carry out",
+                    "come",
+                    "achieve",
+                    "perform"
+                ],
+                "tran": "做；进行；完成；解答"
+            },
+            {
+                "pos": "vi.",
+                "ws": [
+                    "progress",
+                    "wage"
+                ],
+                "tran": "做；进行；完成"
+            }
+        ],
+        "word": "do"
+    },
+    "collins": {
+        "super_headwords": {
+            "super_headword": [
+                "AUXILIARY VERB USES",
+                "OTHER VERB USES",
+                "NOUN USES"
+            ]
+        },
+        "collins_entries": [
+            {
+                "super_headword": "AUXILIARY VERB USES",
+                "entries": {
+                    "entry": [
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "AUX",
+                                        "pos_tips": "助动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "他们不想工作。",
+                                                "eng_sent": "They don't want to work."
+                                            },
+                                            {
+                                                "chn_sent": "我不知道杰米有把刀。",
+                                                "eng_sent": "I did not know Jamie had a knife."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "<b>Do</b> is used to form the negative of main verbs, by putting \"not\" after \"do\" and before the main verb in its infinitive form, that is the form without \"to.\" 用于构成动词的否定式，后面加\"not\"，放在主要动词前面，是一种不带\"to\"的动词不定式"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "AUX",
+                                        "pos_tips": "助动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "你喜欢音乐吗？",
+                                                "eng_sent": "Do you like music?"
+                                            },
+                                            {
+                                                "chn_sent": "他说了什么？",
+                                                "eng_sent": "What did he say?"
+                                            }
+                                        ]
+                                    },
+                                    "tran": "<b>Do</b> is used to form questions, by putting the subject after \"do\" and before the main verb in its infinitive form, that is the form without \"to.\" 用于构成疑问句，主语放在\"do\"和主要动词中间，是不带\"to\"的动词不定式 "
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "AUX",
+                                        "pos_tips": "助动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "你了解安迪，不是吗？",
+                                                "eng_sent": "You know about Andy, don't you?"
+                                            }
+                                        ]
+                                    },
+                                    "tran": "<b>Do</b> is used in question tags. 用于附加疑问句中"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "AUX",
+                                        "pos_tips": "助动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "“他认为有什么可疑的事情发生吗？”— “是的，他是这样认为的。”",
+                                                "eng_sent": "\"Did he think there was anything suspicious going on?\"—\"Yes, he did.\""
+                                            }
+                                        ]
+                                    },
+                                    "tran": "You use <b>do</b> when you are confirming or contradicting a statement containing \"do,\" or giving a negative or positive answer to a question. 用于肯定或否定回答"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T/V-I",
+                                        "pos_tips": "及物动词/不及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "我挣的钱比他多。",
+                                                "eng_sent": "I make more money than he does."
+                                            },
+                                            {
+                                                "chn_sent": "和所有母亲一样，我也有幻想，想像我的女儿们长大成人后生活会是怎样。",
+                                                "eng_sent": "I had fantasies, as do all mothers, about how life would be when my girls were grown."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "<b>Do</b> can be used to refer back to another verb group when you are comparing or contrasting two things, or saying that they are the same. 比较两件事物时用于代替前面出现的动词，表示同一概念"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "你知道那是真的，我也知道。",
+                                                "eng_sent": "You know that's true, and so do I."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "You use <b>do</b> after \"so\" and \"nor\" to say that the same statement is true for two people or groups. 用在\"so\"和\"nor\"后面，表示同一陈述适用于两个或两组人"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "phonetic": "dʊ, duː",
+                "basic_entries": {
+                    "basic_entry": [
+                        {
+                            "cet": "CET4",
+                            "headword": "do",
+                            "wordforms": {
+                                "wordform": [
+                                    {
+                                        "word": "doing"
+                                    },
+                                    {
+                                        "word": "did"
+                                    },
+                                    {
+                                        "word": "done"
+                                    },
+                                    {
+                                        "word": "does"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "headword": "do",
+                "star": "5"
+            },
+            {
+                "super_headword": "OTHER VERB USES",
+                "entries": {
+                    "entry": [
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "我正试图做些工作。",
+                                                "eng_sent": "I was trying to do some work."
+                                            },
+                                            {
+                                                "chn_sent": "午餐后，我和伊丽莎白洗了碗。",
+                                                "eng_sent": "After lunch Elizabeth and I did the dishes."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "When you <b>do</b> something, you take some action or perform an activity or task. <b>Do</b> is often used instead of a more specific verb, to talk about a common action involving a particular thing. For example you can say \"do your hair\" instead of \"brush your hair.\" 表示从事某种活动或工作，常用来替代有具体含义的动词"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "你在干什么？",
+                                                "eng_sent": "What are you doing?"
+                                            }
+                                        ]
+                                    },
+                                    "tran": "<b>Do</b> can be used to stand for any verb group, or to refer back to another verb group, including one that was in a previous sentence. 用于代表任何动词或代替前面出现过的动词"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "box_extra": "强调",
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "她只顾抱怨。",
+                                                "eng_sent": "All she does is complain."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "You can use <b>do</b> in a clause at the beginning of a sentence after words like \"what\" and \"all,\" to give special emphasis to the information that comes at the end of the sentence. 用于以\"what\"或\"all\"等开头的句中，强调句子后面所说的事情"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "我被允许自由安排我的生活。",
+                                                "eng_sent": "I was allowed to do whatever I wanted with my life."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you <b>do</b> a particular thing <b>with</b> something, you use it in that particular way. 做; 干"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "他们拒绝采取任何行动解决引发犯罪的真正原因：贫困。",
+                                                "eng_sent": "They refuse to do anything about the real cause of crime: poverty."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you <b>do</b> something <b>about</b> a problem, you take action to try to solve it.  采取行动"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "几颗炸弹足以造成严重破坏。",
+                                                "eng_sent": "A few bombs can do a lot of damage."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If an action or event <b>does</b> a particular thing, such as harm or good, it has that result or effect. 造成"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "“你父亲是做什么工作的？”— “哦，他是个公务员。”",
+                                                "eng_sent": "\"What does your father do?\"—\"Well, he's a civil servant.\""
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you ask someone what they <b>do</b>, you want to know what their job or profession is. 从事 (某种职业)"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "明晚你有事吗？",
+                                                "eng_sent": "Are you doing anything tomorrow night?"
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you <b>are doing</b> something, you are busy or active in some way, or have planned an activity for some time in the future. 忙于; 准备做"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-I",
+                                        "pos_tips": "不及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "康妮在学校表现很好，以优等成绩毕业。",
+                                                "eng_sent": "Connie did well at school and graduated with honours."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you say that someone or something <b>does</b> well or badly, you are talking about how successful or unsuccessful they are. 表现; 进展"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "他们每小时达到70英里。",
+                                                "eng_sent": "They were doing 70 miles an hour."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "You can use <b>do</b> when referring to the speed or rate that something or someone achieves or is able to achieve. 达到 (某种速度)"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "我不吸毒。",
+                                                "eng_sent": "I don't do drugs."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If someone <b>does</b> drugs, they take illegal drugs. 吸食 (毒品)"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "V-T/V-I",
+                                        "pos_tips": "及物动词/不及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "只要能当众大闹，吸引人们的注意，做什么都行。",
+                                                "eng_sent": "Anything to create a scene and attract attention will do."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you say that something <b>will</b> <b>do</b> or <b>will</b> <b>do</b> you, you mean that there is enough of it or that it is of good enough quality to meet your requirements or to satisfy you. 够用; 满足需要"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "registr": "口语",
+                                    "loc": "英国英语",
+                                    "pos_entry": {
+                                        "pos": "V-T",
+                                        "pos_tips": "及物动词"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "她打算上夜校学数学。",
+                                                "eng_sent": "She planned to do maths at night school."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you <b>do</b> a subject, author, or book, you study them at school or college. 攻读; 研究"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "PHRASE",
+                                        "pos_tips": "习语"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "我需要一杯茶。",
+                                                "eng_sent": "I could do with a cup of tea."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you say that you <b>could do with</b> something, you mean that you need it or would benefit from it. 需要; 从…中获益"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "PHRASE",
+                                        "pos_tips": "习语"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "你把那本笔记本放哪儿去了？",
+                                                "eng_sent": "What did you do with that notebook?"
+                                            }
+                                        ]
+                                    },
+                                    "tran": "You can ask someone <b>what</b> they <b>did with</b> something as another way of asking them where they put it. 把…放在何处"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "PHRASE",
+                                        "pos_tips": "习语"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "“坎贝尔医生，”他一脸惊讶地说道，“你怎么会在这儿？”",
+                                                "eng_sent": "\"Dr. Campbell,\" he said, clearly surprised. \"What are you doing here?\""
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you ask <b>what</b> someone or something <b>is doing</b> in a particular place, you are asking why they are there. 为何出现在此处"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "PHRASE",
+                                        "pos_tips": "习语"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "巴特菲尔德先生否认他和这一事件有关。",
+                                                "eng_sent": "Mr. Butterfield denies having anything to do with the episode."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If you say that one thing <b>has</b> something <b>to do with</b> or <b>is</b> something <b>to do with</b> another thing, you mean that the two things are connected or that the first thing is about the second thing. 与…有关"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "phonetic": "duː",
+                "basic_entries": {
+                    "basic_entry": [
+                        {
+                            "headword": "do",
+                            "wordforms": {
+                                "wordform": [
+                                    {
+                                        "word": "doing"
+                                    },
+                                    {
+                                        "word": "did"
+                                    },
+                                    {
+                                        "word": "done"
+                                    },
+                                    {
+                                        "word": "does"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "headword": "do",
+                "star": "5"
+            },
+            {
+                "super_headword": "NOUN USES",
+                "entries": {
+                    "entry": [
+                        {
+                            "tran_entry": [
+                                {
+                                    "registr": "非正式",
+                                    "loc": "英国英语",
+                                    "pos_entry": {
+                                        "pos": "N",
+                                        "pos_tips": "名词"
+                                    },
+                                    "tran": "a formal or festive gathering; party (正式的)集会; (节日中的)集会; 聚会"
+                                }
+                            ]
+                        },
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "PHRASE",
+                                        "pos_tips": "习语"
+                                    },
+                                    "exam_sents": {
+                                        "sent": [
+                                            {
+                                                "chn_sent": "请就最适用的彩照胶卷及其使用须知给我建议。",
+                                                "eng_sent": "Please advise me on the most suitable colour print film and some dos and don'ts."
+                                            }
+                                        ]
+                                    },
+                                    "tran": "If someone tells you the <b>dos and don'ts</b> of a particular situation, they advise you what you should and should not do in that situation. 该做的和不该做的; 行为准则; 注意事项"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "phonetic": "duː",
+                "basic_entries": {
+                    "basic_entry": [
+                        {
+                            "headword": "do"
+                        }
+                    ]
+                },
+                "headword": "do"
+            },
+            {
+                "phonetic": "dəʊ",
+                "basic_entries": {
+                    "basic_entry": [
+                        {
+                            "headword": "do"
+                        }
+                    ]
+                },
+                "headword": "do"
+            },
+            {
+                "entries": {
+                    "entry": [
+                        {
+                            "tran_entry": [
+                                {
+                                    "pos_entry": {
+                                        "pos": "the INTERNET DOMAIN NAME for"
+                                    },
+                                    "tran": "Dominican Republic 多米尼加共和国"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "basic_entries": {
+                    "basic_entry": [
+                        {
+                            "headword": "do"
+                        }
+                    ]
+                },
+                "headword": "do"
+            }
+        ]
+    },
+    "word_video": {
+        "word_videos": [
+            {
+                "ad": {
+                    "avatar": "https://ydlunacommon-cdn.nosdn.127.net/d178785c8c4012b3c5c4ce47d5fa1057.png",
+                    "title": "对抗遗忘，10000词汇速记>>>",
+                    "url": "https://5x31y.xetlk.com/s/1UVORw"
+                },
+                "video": {
+                    "cover": "https://ydlunacommon-cdn.nosdn.127.net/d376c440655bd645a20470231f0e2b2e.png",
+                    "image": "https://ydhardwarebusiness.nosdn.127.net/6b0873ea798a2f3578c8461ccb1d99b6.jpeg",
+                    "title": "枪哥讲单词  do",
+                    "url": "https://luna-dict-community.nosdn.127.net/uUSW4XG9_4733457933_shd.mp4"
+                }
+            }
+        ]
+    },
+    "discriminate": {
+        "data": [
+            {
+                "source": "http://wenku.baidu.com/view/40c2bfec81c758f5f61f671b.html",
+                "usages": [
+                    {
+                        "headword": "execute",
+                        "usage": "指需专门技术熟练技巧去完成某种复杂的任务或表演等，也指用行动把计划或打算付诸实施或执行某项命令。"
+                    },
+                    {
+                        "headword": "conduct",
+                        "usage": "和perform一样比较正式，二者意义相近，但conduct含指导、领导或监督等意味。"
+                    },
+                    {
+                        "headword": "do",
+                        "usage": "最普通常用词，指完成某项具体工作、任务，也指完成某种行为或动作。"
+                    },
+                    {
+                        "headword": "perform",
+                        "usage": "指完成困难较大、较复杂的任务。较正式用词。"
+                    },
+                    {
+                        "headword": "fulfil",
+                        "usage": "指履行和实现所许诺的、所期望或要求的事情，含最终完成的意味。"
+                    }
+                ],
+                "headwords": [
+                    "execute",
+                    "conduct",
+                    "do",
+                    "perform",
+                    "fulfil"
+                ],
+                "tran": "做，执行，实施，完成"
+            }
+        ],
+        "return-phrase": "do"
+    },
+    "wikipedia_digest": {
+        "summarys": [
+            {
+                "summary": "DO may refer to:",
+                "key": "DO"
+            }
+        ],
+        "source": {
+            "name": "维基百科",
+            "url": "http://en.wikipedia.org/wiki/DO"
+        }
+    },
+    "lang": "eng",
+    "ec": {
+        "web_trans": [
+            "溶解氧(Dissolved Oxygen)",
+            "执行",
+            "实施"
+        ],
+        "special": [
+            {
+                "nat": "做",
+                "major": "计算机科学技术"
+            }
+        ],
+        "exam_type": [
+            "初中",
+            "高中",
+            "CET4",
+            "CET6",
+            "考研"
+        ],
+        "source": {
+            "name": "有道词典",
+            "url": "https://dict.youdao.com"
+        },
+        "word": {
+            "usphone": "duː; də",
+            "ukphone": "duː; də",
+            "ukspeech": "do&type=1",
+            "trs": [
+                {
+                    "pos": "v.",
+                    "tran": "做，干，办（某事）；行动，表现；顺利进行，进展；从事（工作）；执行（任务）；学习，研究；解答，解决，算出；制作，做出；演出，编排（戏剧等）；仿效，模仿；完成，做好；供给，提供；走过，行过；以……速度行进；达到（一定销售额）；参观，游览，旅行；处理；适合，足够；煮制；欺骗；惩罚；（从某地方）盗窃；护理；（非正式）吸（毒）；（非正式）性交；度过（一段时间）；导致，引起；（非正式）痛打，杀死；生长；整理"
+                },
+                {
+                    "pos": "aux.",
+                    "tran": "与动词连用构成否定句和疑问句；用于构成疑问尾句；用于避免重复某一动词；用于强调主要动词；用于祈使句中表示礼貌；用于肯定或否定回答；用在倒装句中"
+                },
+                {
+                    "pos": "n.",
+                    "tran": "聚会，社交活动；要求，规定; C 大调音阶中的第一音；（口语）事件；（主英国口语）诈骗；（主英国、新西兰口语）宴会；（口语）必须做到的事情；（女子）发型"
+                },
+                {
+                    "pos": "n.",
+                    "tran": "（Do）多（人名Dorothea和Dorothy的昵称）"
+                }
+            ],
+            "wfs": [
+                {
+                    "wf": {
+                        "name": "复数",
+                        "value": "dos或do's"
+                    }
+                },
+                {
+                    "wf": {
+                        "name": "第三人称单数",
+                        "value": "does"
+                    }
+                },
+                {
+                    "wf": {
+                        "name": "现在分词",
+                        "value": "doing"
+                    }
+                },
+                {
+                    "wf": {
+                        "name": "过去式",
+                        "value": "did"
+                    }
+                },
+                {
+                    "wf": {
+                        "name": "过去分词",
+                        "value": "done"
+                    }
+                }
+            ],
+            "return-phrase": "do",
+            "usspeech": "do&type=2"
+        }
+    },
+    "ee": {
+        "source": {
+            "name": "WordNet",
+            "url": "https://wordnet.princeton.edu"
+        },
+        "word": {
+            "trs": [
+                {
+                    "pos": "n.",
+                    "tr": [
+                        {
+                            "tran": "an uproarious party",
+                            "similar-words": [
+                                "bash",
+                                "brawl"
+                            ]
+                        },
+                        {
+                            "tran": "the syllable naming the first (tonic) note of any major scale in solmization",
+                            "similar-words": [
+                                "doh",
+                                "ut"
+                            ]
+                        },
+                        {
+                            "tran": "doctor's degree in osteopathy",
+                            "similar-words": [
+                                "Doctor of Osteopathy"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "pos": "v.",
+                    "tr": [
+                        {
+                            "examples": [
+                                "do research",
+                                "do nothing"
+                            ],
+                            "tran": "engage in",
+                            "similar-words": [
+                                "make"
+                            ]
+                        },
+                        {
+                            "tran": "carry out or perform an action",
+                            "similar-words": [
+                                "perform",
+                                "execute"
+                            ]
+                        },
+                        {
+                            "tran": "get (something) done",
+                            "similar-words": [
+                                "perform"
+                            ]
+                        },
+                        {
+                            "examples": [
+                                "How is she doing in her new job?"
+                            ],
+                            "tran": "proceed or get along",
+                            "similar-words": [
+                                "fare",
+                                "make out",
+                                "come",
+                                "get along"
+                            ]
+                        },
+                        {
+                            "tran": "give rise to; cause to happen or occur, not always intentionally",
+                            "similar-words": [
+                                "cause",
+                                "make"
+                            ]
+                        },
+                        {
+                            "tran": "carry out or practice; as of jobs and professions",
+                            "similar-words": [
+                                "practice",
+                                "practise",
+                                "exercise"
+                            ]
+                        },
+                        {
+                            "examples": [
+                                "Will $100 do?",
+                                "A 'B' grade doesn't suffice to get me into medical school"
+                            ],
+                            "tran": "be sufficient; be adequate, either in quality or quantity",
+                            "similar-words": [
+                                "suffice",
+                                "answer",
+                                "serve"
+                            ]
+                        },
+                        {
+                            "tran": "create or design, often in a certain way",
+                            "similar-words": [
+                                "make"
+                            ]
+                        },
+                        {
+                            "examples": [
+                                "What makes her do this way?",
+                                "The dog acts ferocious, but he is really afraid of people"
+                            ],
+                            "tran": "behave in a certain manner; show a certain behavior; conduct or comport oneself",
+                            "similar-words": [
+                                "act",
+                                "behave"
+                            ]
+                        },
+                        {
+                            "tran": "spend time in prison or in a labor camp",
+                            "similar-words": [
+                                "serve"
+                            ]
+                        },
+                        {
+                            "examples": [
+                                "We could do with a little more help around here"
+                            ],
+                            "tran": "carry on or manage",
+                            "similar-words": [
+                                "manage"
+                            ]
+                        },
+                        {
+                            "tran": "arrange attractively",
+                            "similar-words": [
+                                "dress",
+                                "arrange",
+                                "set",
+                                "coif",
+                                "coiffe",
+                                "coiffure"
+                            ]
+                        },
+                        {
+                            "examples": [
+                                "This car does 150 miles per hour"
+                            ],
+                            "tran": "travel or traverse (a distance)"
+                        }
+                    ]
+                }
+            ],
+            "phone": "强du:, 弱du, də, d, du:",
+            "speech": "do",
+            "return-phrase": "do"
+        }
+    },
+    "blng_sents_part": {
+        "sentence-count": 6,
+        "sentence-pair": [
+            {
+                "sentence": "What do you propose to do now?",
+                "sentence-eng": "What <b>do</b> you propose to <b>do</b> now?",
+                "sentence-translation": "现在你打算做什么？",
+                "speech-size": "8kb",
+                "aligned-words": {
+                    "src": {
+                        "chars": [
+                            {
+                                "@s": "1",
+                                "@e": "8",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ]
+                                },
+                                "@id": "0"
+                            },
+                            {
+                                "@s": "9",
+                                "@e": "12",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ]
+                                },
+                                "@id": "1"
+                            },
+                            {
+                                "@s": "13",
+                                "@e": "23",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ]
+                                },
+                                "@id": "2"
+                            },
+                            {
+                                "@s": "24",
+                                "@e": "26",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ]
+                                },
+                                "@id": "3"
+                            },
+                            {
+                                "@s": "27",
+                                "@e": "30",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ]
+                                },
+                                "@id": "4"
+                            }
+                        ]
+                    },
+                    "tran": {
+                        "chars": [
+                            {
+                                "@s": "1",
+                                "@e": "3",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ]
+                                },
+                                "@id": "0"
+                            },
+                            {
+                                "@s": "3",
+                                "@e": "4",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ]
+                                },
+                                "@id": "1"
+                            },
+                            {
+                                "@s": "4",
+                                "@e": "6",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ]
+                                },
+                                "@id": "2"
+                            },
+                            {
+                                "@s": "6",
+                                "@e": "7",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ]
+                                },
+                                "@id": "3"
+                            },
+                            {
+                                "@s": "7",
+                                "@e": "9",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ]
+                                },
+                                "@id": "4"
+                            }
+                        ]
+                    }
+                },
+                "source": "《牛津词典》",
+                "url": "https://《牛津词典》/",
+                "sentence-speech": "What+do+you+propose+to+do+now%3F&le=eng"
+            },
+            {
+                "sentence": "What do you do for a living ?",
+                "sentence-eng": "What <b>do</b> you <b>do</b> for a living ?",
+                "sentence-translation": "你靠什么谋生？",
+                "speech-size": "8kb",
+                "aligned-words": {
+                    "src": {
+                        "chars": [
+                            {
+                                "@s": "1",
+                                "@e": "5",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ]
+                                },
+                                "@id": "0"
+                            },
+                            {
+                                "@s": "9",
+                                "@e": "12",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ]
+                                },
+                                "@id": "1"
+                            },
+                            {
+                                "@s": "22",
+                                "@e": "28",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ]
+                                },
+                                "@id": "2"
+                            }
+                        ]
+                    },
+                    "tran": {
+                        "chars": [
+                            {
+                                "@s": "1",
+                                "@e": "2",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ]
+                                },
+                                "@id": "0"
+                            },
+                            {
+                                "@s": "3",
+                                "@e": "5",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ]
+                                },
+                                "@id": "1"
+                            },
+                            {
+                                "@s": "5",
+                                "@e": "7",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ]
+                                },
+                                "@id": "2"
+                            }
+                        ]
+                    }
+                },
+                "source": "《牛津词典》",
+                "url": "https://《牛津词典》/",
+                "sentence-speech": "What+do+you+do+for+a+living+%3F&le=eng"
+            },
+            {
+                "sentence": "What do you want to do tomorrow?",
+                "sentence-eng": "What <b>do</b> you want to <b>do</b> tomorrow?",
+                "sentence-translation": "明天你想做什么？",
+                "speech-size": "9kb",
+                "aligned-words": {
+                    "src": {
+                        "chars": [
+                            {
+                                "@s": "1",
+                                "@e": "8",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ]
+                                },
+                                "@id": "0"
+                            },
+                            {
+                                "@s": "9",
+                                "@e": "12",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ]
+                                },
+                                "@id": "1"
+                            },
+                            {
+                                "@s": "13",
+                                "@e": "20",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ]
+                                },
+                                "@id": "2"
+                            },
+                            {
+                                "@s": "21",
+                                "@e": "23",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ]
+                                },
+                                "@id": "3"
+                            },
+                            {
+                                "@s": "24",
+                                "@e": "32",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ]
+                                },
+                                "@id": "4"
+                            }
+                        ]
+                    },
+                    "tran": {
+                        "chars": [
+                            {
+                                "@s": "1",
+                                "@e": "3",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ]
+                                },
+                                "@id": "0"
+                            },
+                            {
+                                "@s": "3",
+                                "@e": "4",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "1"
+                                        }
+                                    ]
+                                },
+                                "@id": "1"
+                            },
+                            {
+                                "@s": "4",
+                                "@e": "5",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "2"
+                                        }
+                                    ]
+                                },
+                                "@id": "2"
+                            },
+                            {
+                                "@s": "5",
+                                "@e": "6",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "3"
+                                        }
+                                    ]
+                                },
+                                "@id": "3"
+                            },
+                            {
+                                "@s": "6",
+                                "@e": "8",
+                                "aligns": {
+                                    "sc": [
+                                        {
+                                            "@id": "0"
+                                        }
+                                    ],
+                                    "tc": [
+                                        {
+                                            "@id": "4"
+                                        }
+                                    ]
+                                },
+                                "@id": "4"
+                            }
+                        ]
+                    }
+                },
+                "source": "《牛津词典》",
+                "url": "https://《牛津词典》/",
+                "sentence-speech": "What+do+you+want+to+do+tomorrow%3F&le=eng"
+            }
+        ],
+        "more": "blng_sents",
+        "trs-classify": [
+            {
+                "proportion": "100%",
+                "tr": "全部"
+            },
+            {
+                "proportion": "88.9%",
+                "tr": "做"
+            },
+            {
+                "proportion": "3.3%",
+                "tr": "完成"
+            },
+            {
+                "proportion": "2.4%",
+                "tr": "干"
+            },
+            {
+                "proportion": "1.7%",
+                "tr": "做好"
+            },
+            {
+                "proportion": "0.9%",
+                "tr": "作"
+            },
+            {
+                "proportion": "0.7%",
+                "tr": "办"
+            },
+            {
+                "proportion": "0.7%",
+                "tr": "执行"
+            },
+            {
+                "proportion": "0.6%",
+                "tr": "处理"
+            },
+            {
+                "proportion": "0.5%",
+                "tr": "做出"
+            },
+            {
+                "proportion": "0.4%",
+                "tr": "行动"
+            }
+        ]
+    },
+    "individual": {
+        "trs": [
+            {
+                "pos": "v.",
+                "tran": "做，从事；实行，进行；尽力；制作"
+            }
+        ],
+        "idiomatic": [
+            {
+                "colloc": {
+                    "en": "do well in",
+                    "zh": "擅长"
+                }
+            },
+            {
+                "colloc": {
+                    "en": "do the dishes",
+                    "zh": "洗碗碟"
+                }
+            }
+        ],
+        "level": "中考",
+        "examInfo": {
+            "year": 5,
+            "questionTypeInfo": [
+                {
+                    "time": 6567,
+                    "type": "阅读"
+                },
+                {
+                    "time": 633,
+                    "type": "短文填空"
+                },
+                {
+                    "time": 2753,
+                    "type": "听力"
+                },
+                {
+                    "time": 76,
+                    "type": "翻译"
+                },
+                {
+                    "time": 606,
+                    "type": "情景对话"
+                },
+                {
+                    "time": 281,
+                    "type": "写作"
+                },
+                {
+                    "time": 955,
+                    "type": "完形填空"
+                },
+                {
+                    "time": 1060,
+                    "type": "单项选择"
+                },
+                {
+                    "time": 147,
+                    "type": "句子填空"
+                }
+            ],
+            "recommendationRate": 5,
+            "frequency": 13078
+        },
+        "return-phrase": "do",
+        "pastExamSents": [
+            {
+                "en": "Lazy replied reluctantly, \"I know, but it's OK. I will do that tomorrow.\"",
+                "source": "2021·湖北-黄冈·短文填空",
+                "zh": "拉齐不情愿地回答：“我知道，不过没关系，我明天就做。”"
+            },
+            {
+                "en": "Are cameras really helpful? What do students think about it?",
+                "source": "2021·江苏-盐城·阅读",
+                "zh": "摄像头真的有用吗？同学们是怎么想的呢？"
+            },
+            {
+                "en": "Why do some whales have to be protected?",
+                "source": "2021·四川-达州·单项选择",
+                "zh": "为什么有些鲸鱼必须受到保护？"
+            },
+            {
+                "en": "What do you do with your rubbish?",
+                "source": "2021·湖南-永州·阅读",
+                "zh": "你怎么处理你的垃圾？"
+            },
+            {
+                "en": "Only 20 percent of teenagers do chores at home.",
+                "source": "2021·山西·听力",
+                "zh": "只有20%的青少年在家做家务。"
+            },
+            {
+                "en": "I decided I wouldn't do that.",
+                "source": "2021·湖北-随州·完形填空",
+                "zh": "我决定不那么做。"
+            },
+            {
+                "en": "People started using it more than 4,000 years ago to do maths.",
+                "source": "2021·辽宁-沈阳·阅读",
+                "zh": "早在4000多年前，人们就已经开始用它来算术。"
+            },
+            {
+                "en": "I tried my best to do it with my classmates.",
+                "source": "2021·甘肃-兰州·完形填空",
+                "zh": "我尽自己最大的努力和同学去做这件事。"
+            },
+            {
+                "en": "People see Luke very differently: \"He can't do something like that. He's disabled.\"",
+                "source": "2021·上海·阅读",
+                "zh": "人们对卢克的看法非常不同：“他不能做那样的事情。他是残疾人。”"
+            },
+            {
+                "en": "I tried to do what he wanted.",
+                "source": "2021·内蒙古-呼和浩特·阅读",
+                "zh": "我试着按他说的做。"
+            },
+            {
+                "en": "How do you improve your reading?",
+                "source": "2021·贵州-铜仁·情景对话",
+                "zh": "你如何提高你的阅读能力呢？"
+            },
+            {
+                "en": "How often do they stay up late?",
+                "source": "2021·湖北-黄石·单项选择",
+                "zh": "他们多久熬一次夜？"
+            },
+            {
+                "en": "Gifts do cost money.",
+                "source": "2021·浙江-湖州·完形填空",
+                "zh": "礼物确实需要花钱。"
+            },
+            {
+                "en": "How often do you have hamburgers or fried chicken?",
+                "source": "2021·湖南-湘西·阅读",
+                "zh": "你多久吃一次汉堡包或炸鸡？"
+            },
+            {
+                "en": "How do plastic straws get into the ocean?",
+                "source": "2021·内蒙古-呼和浩特·完形填空",
+                "zh": "塑料吸管是如何进入海洋的呢？"
+            },
+            {
+                "en": "Starting from today, you will do it 100 times a day.",
+                "source": "2021·辽宁-朝阳·完形填空",
+                "zh": "从今天开始，你每天都要做100次。"
+            },
+            {
+                "en": "What are you going to do with them?",
+                "source": "2021·海南，辽宁-抚顺、本溪、辽阳·情景对话",
+                "zh": "你打算怎么处理它们？"
+            },
+            {
+                "en": "How do you celebrate every year?",
+                "source": "2021·内蒙古-赤峰·情景对话",
+                "zh": "你每年怎么庆祝？"
+            },
+            {
+                "en": "How do clouds know how to make so many shapes?",
+                "source": "2021·天津·阅读",
+                "zh": "云怎么知道如何形成如此多的形状？"
+            },
+            {
+                "en": "We kept asking: Why do we do it? What's our goal?",
+                "source": "2021·浙江-温州·阅读",
+                "zh": "我们一直在问：我们为什么要这么做？我们的目标是什么？"
+            }
+        ]
+    },
+    "collins_primary": {
+        "words": {
+            "indexforms": [
+                "do",
+                "does",
+                "doing",
+                "did",
+                "done"
+            ],
+            "word": "do"
+        },
+        "gramcat": [
+            {
+                "audiourl": "https://ydlunacommon-cdn.nosdn.127.net/085ce1c341c75d6e27c41818e83ee28e.mp3",
+                "pronunciation": "duː",
+                "senses": [
+                    {
+                        "sensenumber": "1",
+                        "examples": [
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "他们工作不怎么努力。"
+                                },
+                                "example": "They don't work very hard."
+                            },
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "我不知道杰米有辆车。"
+                                },
+                                "example": "I did not know Jamie had a car."
+                            }
+                        ],
+                        "definition": "used with `not' to form the negative of main verbs",
+                        "lang": "ZH-CN",
+                        "word": "（与not连用构成主动词的否定式）"
+                    },
+                    {
+                        "sensenumber": "2",
+                        "examples": [
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "你喜欢音乐吗？"
+                                },
+                                "example": "Do you like music?"
+                            },
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "他说什么了？"
+                                },
+                                "example": "What did he say?"
+                            }
+                        ],
+                        "definition": "used with another verb to form questions",
+                        "lang": "ZH-CN",
+                        "word": "（与另一动词连用构成疑问句）"
+                    },
+                    {
+                        "sensenumber": "3",
+                        "examples": [
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "“你认为他说的是实话吗？”——“我觉得是。”"
+                                },
+                                "example": "`Do you think he is telling the truth?' — `Yes, I do.'"
+                            }
+                        ],
+                        "definition": "used instead of repeating a verb when you are answering a question",
+                        "lang": "ZH-CN",
+                        "word": "（回答问题时用于代替动词，避免重复）"
+                    }
+                ],
+                "partofspeech": "verb:auxiliary",
+                "audio": "64378",
+                "forms": [
+                    {
+                        "form": "does"
+                    },
+                    {
+                        "form": "doing"
+                    },
+                    {
+                        "form": "did"
+                    },
+                    {
+                        "form": "done"
+                    }
+                ]
+            },
+            {
+                "audiourl": "https://ydlunacommon-cdn.nosdn.127.net/7a08d663187b0245b7a9c09ac424cbf8.mp3",
+                "pronunciation": "duː",
+                "senses": [
+                    {
+                        "sensenumber": "1",
+                        "examples": [
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "我当时正想要干点活儿。"
+                                },
+                                "example": "I was trying to do some work."
+                            },
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "午饭后，我和伊丽莎白洗了碗。"
+                                },
+                                "example": "After lunch Elizabeth and I did the dishes."
+                            }
+                        ],
+                        "definition": "to take some action or perform an activity or task",
+                        "lang": "ZH-CN",
+                        "word": "做，干（某个行为和任务）"
+                    },
+                    {
+                        "sensenumber": "2",
+                        "examples": [
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "“你父亲是做什么的？”——“他是个医生。”"
+                                },
+                                "example": "`What does your father do?' — `He's a doctor.'"
+                            }
+                        ],
+                        "definition": "used when you are asking someone what their job is",
+                        "lang": "ZH-CN",
+                        "word": "做，从事（用于询问职业）"
+                    },
+                    {
+                        "sensenumber": "3",
+                        "examples": [
+                            {
+                                "sense": {
+                                    "lang": "ZH-CN",
+                                    "word": "穿什么都可以，暖和就行。"
+                                },
+                                "example": "It doesn't matter what you wear — anything warm will do."
+                            }
+                        ],
+                        "definition": "to be good enough",
+                        "lang": "ZH-CN",
+                        "word": "适合；足够"
+                    }
+                ],
+                "partofspeech": "verb",
+                "audio": "16556",
+                "phrases": [
+                    {
+                        "phrase": "could do with someone/something",
+                        "senses": [
+                            {
+                                "examples": [
+                                    {
+                                        "sense": {
+                                            "lang": "ZH-CN",
+                                            "word": "我需要休息一下。"
+                                        },
+                                        "example": "I could do with a rest."
+                                    }
+                                ],
+                                "definition": "to want or need something",
+                                "lang": "ZH-CN",
+                                "word": "需要某事物"
+                            }
+                        ]
+                    },
+                    {
+                        "senses": [
+                            {
+                                "examples": [
+                                    {
+                                        "sense": {
+                                            "lang": "ZH-CN",
+                                            "word": "玛丽扣好上衣扣子。"
+                                        },
+                                        "example": "Mari did up the buttons on her jacket."
+                                    }
+                                ],
+                                "definition": "to fasten something",
+                                "lang": "ZH-CN",
+                                "word": "扣好某物；系好某物；绑好某物"
+                            }
+                        ],
+                        "phrasalverb": [
+                            {
+                                "phrase": "do something up"
+                            }
+                        ]
+                    },
+                    {
+                        "senses": [
+                            {
+                                "examples": [
+                                    {
+                                        "sense": {
+                                            "lang": "ZH-CN",
+                                            "word": "没有他们帮忙也没关系，我们能应付。"
+                                        },
+                                        "example": "We can do without their help. We'll manage."
+                                    }
+                                ],
+                                "definition": "to be able to continue, although you do not have something",
+                                "lang": "ZH-CN",
+                                "word": "没有…也行；没有…也能对付过去"
+                            }
+                        ],
+                        "phrasalverb": [
+                            {
+                                "phrase": "do without something"
+                            }
+                        ]
+                    },
+                    {
+                        "phrase": "have/be to do with someone/something",
+                        "senses": [
+                            {
+                                "examples": [
+                                    {
+                                        "sense": {
+                                            "lang": "ZH-CN",
+                                            "word": "克拉克坚持说所有这一切都和他无关。"
+                                        },
+                                        "example": "Clarke insists all this has nothing to do with him."
+                                    }
+                                ],
+                                "definition": "to be connected with someone or something",
+                                "lang": "ZH-CN",
+                                "word": "和某人/某事相关"
+                            }
+                        ]
+                    }
+                ],
+                "forms": [
+                    {
+                        "form": "does"
+                    },
+                    {
+                        "form": "doing"
+                    },
+                    {
+                        "form": "did"
+                    },
+                    {
+                        "form": "done"
+                    }
+                ]
+            }
+        ]
+    },
+    "rel_word": {
+        "word": "do",
+        "stem": "do",
+        "rels": [
+            {
+                "rel": {
+                    "pos": "adj.",
+                    "words": [
+                        {
+                            "word": "doable",
+                            "tran": "可做的"
+                        }
+                    ]
+                }
+            },
+            {
+                "rel": {
+                    "pos": "n.",
+                    "words": [
+                        {
+                            "word": "doer",
+                            "tran": "实干家；行为者"
+                        },
+                        {
+                            "word": "doing",
+                            "tran": "活动；所作所为"
+                        }
+                    ]
+                }
+            },
+            {
+                "rel": {
+                    "pos": "v.",
+                    "words": [
+                        {
+                            "word": "doing",
+                            "tran": "做；干（do的ing形式）"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "auth_sents_part": {
+        "sentence-count": 6,
+        "more": "auth_sents",
+        "sent": [
+            {
+                "score": 0.9831474423408508,
+                "speech": "They+do+not+want+to+risk+the+relative+performance+rank+they+achieved+on+the+downside.+",
+                "speech-size": "25kb",
+                "source": "FORBES: <i>Briefing Book: A. Michael Lipper</i>",
+                "url": "youdao",
+                "foreign": "They <b>do</b> not want to risk the relative performance rank they achieved on the downside. "
+            },
+            {
+                "score": 0.983147382736206,
+                "speech": "So+for+all+the+talk%2C+all+the+money%2C+the+troops+have+had+little+to+do.+",
+                "speech-size": "20kb",
+                "source": "BBC: <i>[an error occurred while processing this directive]</i>",
+                "url": "youdao",
+                "foreign": "So for all the talk, all the money, the troops have had little to <b>do</b>. "
+            },
+            {
+                "score": 0.983147144317627,
+                "speech": "We+eliminated+sector+funds+from+consideration+because+they+tend+to+do+well+in+spurts+only.+",
+                "speech-size": "26kb",
+                "source": "FORBES: <i>Bear Market Winners</i>",
+                "url": "youdao",
+                "foreign": "We eliminated sector funds from consideration because they tend to <b>do</b> well in spurts only. "
+            }
+        ]
+    },
+    "media_sents_part": {
+        "sentence-count": 6,
+        "more": "media_sents",
+        "query": "do",
+        "sent": [
+            {
+                "@mediatype": "audio",
+                "snippets": {
+                    "snippet": [
+                        {
+                            "streamUrl": "https://dict.youdao.com/pureaudio?docid=-2986792386239891139",
+                            "duration": "5500",
+                            "swf": "",
+                            "name": "special.2009.08.26",
+                            "source": "VOA",
+                            "win8": "https://dict.youdao.com/pureaudio?docid=-2986792386239891139&dist=win8"
+                        }
+                    ]
+                },
+                "speech-size": "34kb",
+                "eng": "why,when we <b>do</b> not sleep, we <b>do</b> not function well. We just <b>do</b> not know much about sleep at all.\""
+            },
+            {
+                "@mediatype": "video",
+                "snippets": {
+                    "snippet": [
+                        {
+                            "sourceUrl": "youdao",
+                            "streamUrl": "movie=http://dict.youdao.com/purevideo?docid=-2313054174171315580&auto=true",
+                            "swf": "http://shared.ydstatic.com/dict/4.0/simplayer.swf",
+                            "imageUrl": "http://dict.youdao.com/pureimage?docid=-2313054174171315580",
+                            "name": "麻省理工公开课",
+                            "source": "媒体、教育、市场课程节选"
+                        }
+                    ]
+                },
+                "chn": "我们不仅有讲座，还有不同的小组,他们将做实验,和解决问题的练习。<br>",
+                "eng": "In addition to many lectures, we have the working groups pleased to <b>do</b> both experiments and to <b>do</b> problem-solving exercises.<br>"
+            },
+            {
+                "@mediatype": "video",
+                "snippets": {
+                    "snippet": [
+                        {
+                            "sourceUrl": "youdao",
+                            "streamUrl": "movie=http://dict.youdao.com/purevideo?docid=2406362017470360168&auto=true",
+                            "swf": "http://shared.ydstatic.com/dict/4.0/simplayer.swf",
+                            "imageUrl": "http://dict.youdao.com/pureimage?docid=2406362017470360168",
+                            "name": "英语写作：技巧",
+                            "source": "SpeakingMax英语口语达人"
+                        }
+                    ]
+                },
+                "chn": "里面为你准备了练习，所以在每章的结尾，你都有任务要完成。<br>",
+                "eng": "It's got exercises for you to <b>do</b> so at the end of each chapter, you <b>do</b> have a task to <b>do</b>.<br>"
+            },
+            {
+                "@mediatype": "audio",
+                "snippets": {
+                    "snippet": [
+                        {
+                            "streamUrl": "https://dict.youdao.com/pureaudio?docid=1877437340391025193",
+                            "duration": "8700",
+                            "swf": "",
+                            "name": "special.2009.06.27",
+                            "source": "VOA",
+                            "win8": "https://dict.youdao.com/pureaudio?docid=1877437340391025193&dist=win8"
+                        }
+                    ]
+                },
+                "speech-size": "29kb",
+                "eng": "I <b>do</b> not know what else to <b>do</b> but make the best of a bad deal and shake hands over it.\""
+            },
+            {
+                "@mediatype": "audio",
+                "snippets": {
+                    "snippet": [
+                        {
+                            "streamUrl": "https://dict.youdao.com/pureaudio?docid=8644402781817144599",
+                            "duration": "9300",
+                            "swf": "",
+                            "name": "special.2010.05.30",
+                            "source": "VOA",
+                            "win8": "https://dict.youdao.com/pureaudio?docid=8644402781817144599&dist=win8"
+                        }
+                    ]
+                },
+                "speech-size": "35kb",
+                "eng": "They believe that older people <b>do</b> not like to learn new things and will not change the way they <b>do</b> things."
+            }
+        ]
+    },
+    "etym": {
+        "etyms": {
+            "zh": [
+                {
+                    "source": "童理民",
+                    "word": "do",
+                    "value": "来自PIE*dhe, 做，制造，放置，词源同fact, theme.",
+                    "url": "",
+                    "desc": "做"
+                },
+                {
+                    "source": "童理民",
+                    "word": "do",
+                    "value": "可追溯至古印欧语dhe-(\"地方,放置\",--也是英语deed和doom的词源)。\"地方,放置\"的意义在后续的梵语dha-和希腊语tithemi(英语theme的同源词)中依然保留,延续到日耳曼语don出现了\"制,做\"的意义,到英语的do,\"做\"是其最主要的意义;在其它日耳曼语分支中,德语tun(做)和荷兰语doen(做)是英语do的同源词。  \n 同源词：deed, doom, theme",
+                    "url": "",
+                    "desc": "做，执行"
+                }
+            ]
+        },
+        "word": "do"
+    },
+    "special": {
+        "summary": {
+            "sources": {
+                "source": {
+                    "site": "NoteExpress",
+                    "url": "https://dict.youdao.com"
+                }
+            },
+            "text": "以上统计来源于2,447,534篇论文数据，部分数据来源于"
+        },
+        "co-add": "https://dict.youdao.com",
+        "total": "2,447,543",
+        "entries": [
+            {
+                "entry": {
+                    "major": "计算机科学技术",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "做",
+                                "chnSent": "最后对遗传算法<b>做</b>了一定的展望。",
+                                "cite": "632",
+                                "docTitle": "遗传算法及其应用 ",
+                                "engSent": "Finally, <b>do</b> certain prospect to the genetic algorithm.",
+                                "url": "youdao"
+                            }
+                        },
+                        {
+                            "tr": {
+                                "nat": "PDSA循环",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 2
+                }
+            },
+            {
+                "entry": {
+                    "major": "机械工程",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "执行",
+                                "cite": "0"
+                            }
+                        },
+                        {
+                            "tr": {
+                                "nat": "溶解氧 (dissolved oxygen)",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 2
+                }
+            },
+            {
+                "entry": {
+                    "major": "环境科学技术",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "溶解氧",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 1
+                }
+            },
+            {
+                "entry": {
+                    "major": "能源科学技术",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "溶解氧",
+                                "cite": "0"
+                            }
+                        },
+                        {
+                            "tr": {
+                                "nat": "溶解氧 (dissolved oxygen)",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 2
+                }
+            },
+            {
+                "entry": {
+                    "major": "生物学",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "溶解氧 (dissolved oxygen)",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 1
+                }
+            },
+            {
+                "entry": {
+                    "major": "水利工程",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "溶解氧 (dissolved oxygen)",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 1
+                }
+            },
+            {
+                "entry": {
+                    "major": "农业科学",
+                    "trs": [
+                        {
+                            "tr": {
+                                "nat": "溶解氧 (dissolved oxygen)",
+                                "cite": "0"
+                            }
+                        }
+                    ],
+                    "num": 1
+                }
+            }
+        ]
+    },
+    "input": "do",
+    "music_sents": {
+        "sents_data": [
+            {
+                "songName": "Love Story",
+                "lyricTranslation": "我会等着你，要做的就是离开这里",
+                "singer": "Taylor Swift",
+                "coverImg": "http://p1.music.126.net/KqISQAZmCavlZM-jzym6Ow==/109951167013698133.jpg?imageView=&type=webp",
+                "supportCount": 678,
+                "lyric": "I'll be waiting all there's left to <b>do</b> is run",
+                "link": "https://music.163.com/#/song?id=1917549208",
+                "lyricList": [
+                    {
+                        "duration": 4080,
+                        "lyricTranslation": "罗密欧，带我远走高飞，去一个只有你和我的地方",
+                        "lyric": "Romeo take me somewhere we can be alone",
+                        "start": 0
+                    },
+                    {
+                        "duration": 4080,
+                        "lyricTranslation": "我会等着你，要做的就是离开这里",
+                        "lyric": "I'll be waiting all there's left to <b>do</b> is run",
+                        "start": 4080
+                    }
+                ],
+                "id": "afc58898a0",
+                "songId": "8BB03E60141D03600F2737806C6E3B45",
+                "decryptedSongId": "1917549208",
+                "playUrl": "https://dict.youdao.com/dictserver/sentencemusic/playUrl?redirectUrl=https%3A%2F%2Fydlunacommon-cdn.nosdn.127.net%2Fcd80adba1e20a929a76e6ff7353b04f5.mp3"
+            },
+            {
+                "songName": "Jar Of Love (Album Version)",
+                "lyricTranslation": "我们为什么总是渴求那些我们终将失去的东西",
+                "singer": "Wanting",
+                "coverImg": "https://ydlunacommon-cdn.nosdn.127.net/531056da6b5f4669c80a9e493e0ea063.jpg?imageView=&type=webp",
+                "supportCount": 441,
+                "lyric": "Why <b>do</b> we choose to chase what we'll lose?",
+                "link": "https://music.163.com/#/song?id=1941963749",
+                "lyricList": [
+                    {
+                        "duration": 4034,
+                        "lyricTranslation": "我们为什么总是渴求那些我们终将失去的东西",
+                        "lyric": "Why <b>do</b> we choose to chase what we'll lose?",
+                        "start": 0
+                    },
+                    {
+                        "duration": 3777,
+                        "lyricTranslation": "你所拥有的，未必是你想要的",
+                        "lyric": "What you want isn't what you have.",
+                        "start": 4034
+                    }
+                ],
+                "id": "9ddab30851",
+                "songId": "3F5CDEA624C27EB13886117B223BA705",
+                "decryptedSongId": "1941963749",
+                "playUrl": "https://dict.youdao.com/dictserver/sentencemusic/playUrl?redirectUrl=https%3A%2F%2Fydlunacommon-cdn.nosdn.127.net%2F4fd9948dc09592e87088ccc2d117f1da.mp3"
+            },
+            {
+                "songName": "Right Now",
+                "lyricTranslation": "为何偏偏你不在我身边",
+                "singer": "张艺兴",
+                "coverImg": "https://ydlunacommon-cdn.nosdn.127.net/fb509413e6466bc65cb63424f6de53e5.jpg?imageView=&type=webp",
+                "supportCount": 323,
+                "lyric": "Why <b>do</b> I need you the most when you’re not around ",
+                "link": "https://music.163.com/#/song?id=2164006857",
+                "lyricList": [
+                    {
+                        "duration": 4000,
+                        "lyricTranslation": "为何偏偏你不在我身边",
+                        "lyric": "Why <b>do</b> I need you the most when you’re not around ",
+                        "start": 0
+                    },
+                    {
+                        "duration": 2000,
+                        "lyricTranslation": "我从未像此刻如此需要你",
+                        "lyric": "I’ve never needed you more than I <b>do</b> right now",
+                        "start": 4000
+                    },
+                    {
+                        "duration": 7000,
+                        "lyricTranslation": "我知道这样不对，但此时此刻，我需要你",
+                        "lyric": "I know it’s not right，But I need you right now ",
+                        "start": 6000
+                    }
+                ],
+                "id": "1130309142",
+                "songId": "",
+                "decryptedSongId": "2164006857",
+                "playUrl": "https://dict.youdao.com/dictserver/sentencemusic/playUrl?redirectUrl=https%3A%2F%2Fydlunacommon-cdn.nosdn.127.net%2F1de0680e7236fb7e56344661e8548a9f.mp3"
+            }
+        ],
+        "more": true,
+        "word": "do"
+    },
+    "meta": {
+        "input": "do",
+        "guessLanguage": "eng",
+        "isHasSimpleDict": "1",
+        "le": "en",
+        "lang": "eng",
+        "dicts": [
+            "web_trans",
+            "oxfordAdvanceHtml",
+            "pic_dict",
+            "oxfordAdvanceTen",
+            "video_sents",
+            "simple",
+            "phrs",
+            "oxford",
+            "syno",
+            "collins",
+            "word_video",
+            "webster",
+            "discriminate",
+            "wikipedia_digest",
+            "ec",
+            "ee",
+            "blng_sents_part",
+            "individual",
+            "collins_primary",
+            "rel_word",
+            "auth_sents_part",
+            "media_sents_part",
+            "etym",
+            "special",
+            "senior",
+            "music_sents",
+            "meta",
+            "oxfordAdvance"
+        ]
+    },
+    "le": "en"
+}

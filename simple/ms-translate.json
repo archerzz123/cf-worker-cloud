@@ -1,0 +1,24 @@
+[
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 0.91
+        },
+        "translations": [
+            {
+                "text": "你是谁？我没事",
+                "to": "zh-Hans",
+                "sentLen": {
+                    "srcSentLen": [
+                        13,
+                        8
+                    ],
+                    "transSentLen": [
+                        4,
+                        3
+                    ]
+                }
+            }
+        ]
+    }
+]
