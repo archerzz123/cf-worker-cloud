@@ -413,11 +413,13 @@ function extractTextOnly(result) {
   return String(result?.text ?? "").trim();
 }
 
-function buildChatCompletionStreamResponse(model, textOnly) {
+function buildChatCompletionStreamResponse(model, promptText, textOnly, includeUsage = false) {
   const content = String(textOnly ?? "").trim();
   const completionId = `chatcmpl-${crypto.randomUUID()}`;
   const created = Math.floor(Date.now() / 1000);
   const encoder = new TextEncoder();
+  const promptTokens = estimateTokenCount(promptText);
+  const completionTokens = estimateTokenCount(content);
 
   const chunkStart = {
     id: completionId,
@@ -447,6 +449,21 @@ function buildChatCompletionStreamResponse(model, textOnly) {
           choices: [{ index: 0, delta: { content: segment }, finish_reason: null }],
         };
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(chunkContent)}\n\n`));
+      }
+      if (includeUsage) {
+        const chunkUsage = {
+          id: completionId,
+          object: CHAT_COMPLETION_CHUNK_OBJECT,
+          created,
+          model,
+          choices: [],
+          usage: {
+            prompt_tokens: promptTokens,
+            completion_tokens: completionTokens,
+            total_tokens: promptTokens + completionTokens,
+          },
+        };
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify(chunkUsage)}\n\n`));
       }
       controller.enqueue(encoder.encode(`data: ${JSON.stringify(chunkEnd)}\n\n`));
       controller.enqueue(encoder.encode("data: [DONE]\n\n"));
@@ -716,7 +733,10 @@ async function handleChat(request) {
 
   try {
     const data = await routeHandler(chatInput);
-    if (isStreamRequested(chatInput.stream)) return buildChatCompletionStreamResponse(chatInput.model, extractTextOnly(data));
+    if (isStreamRequested(chatInput.stream)) {
+      const includeUsage = chatInput?.stream_options?.include_usage === true;
+      return buildChatCompletionStreamResponse(chatInput.model, chatInput.text, extractTextOnly(data), includeUsage);
+    }
     return buildChatCompletionResponse(chatInput.model, chatInput.text, safeJSONStringify(data));
   } catch (e) {
     return buildErrorResp({ message: `上游请求失败: ${e.message}`, status: 502, code: ERROR_CODE.UPSTREAM_ERROR });
@@ -803,6 +823,7 @@ function normalizeRequestInput({ query, body }) {
   return {
     model: parsedBody.model ?? "",
     stream: parsedBody.stream ?? false,
+    stream_options: parsedBody.stream_options ?? {},
     text: input,
     messages,
     source_lang: firstNonEmpty([query.get("source_lang"), parsedBody.source_lang], DEFAULTS.SOURCE_LANG),

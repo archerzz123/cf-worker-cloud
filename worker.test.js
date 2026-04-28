@@ -510,3 +510,56 @@ test('POST /v1/chat/completions stream 对多句文本按句分块', async () =>
     globalThis.fetch = originalFetch;
   }
 });
+
+test('POST /v1/chat/completions stream include_usage=true 返回 usage chunk', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () =>
+    jsonResponse({
+      sentences: [{ trans: '你好。世界。' }],
+    });
+
+  try {
+    const request = createRequest('/v1/chat/completions', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-translate',
+        stream: true,
+        stream_options: { include_usage: true },
+        messages: [{ role: 'user', content: 'hello world' }],
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    const bodyText = await response.text();
+    assert.match(bodyText, /"usage":\{"prompt_tokens":\d+,"completion_tokens":\d+,"total_tokens":\d+\}/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/chat/completions stream 默认不返回 usage chunk', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () =>
+    jsonResponse({
+      sentences: [{ trans: '你好。' }],
+    });
+
+  try {
+    const request = createRequest('/v1/chat/completions', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-translate',
+        stream: true,
+        messages: [{ role: 'user', content: 'hello' }],
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    const bodyText = await response.text();
+    assert.doesNotMatch(bodyText, /"usage":\{/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
