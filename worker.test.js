@@ -78,6 +78,93 @@ test('GET /api/gg/tts 正常返回音频', async () => {
   }
 });
 
+test('POST /v1/audio/speech 的 google-tts 在非法 voice 时回退为 en', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    const urlString = String(url);
+    assert.match(urlString, /translate\.googleapis\.com\/translate_tts/);
+    assert.match(urlString, /tl=en/);
+    return new Response('mock-mp3', {
+      status: 200,
+      headers: { 'Content-Type': 'audio/mpeg' },
+    });
+  };
+
+  try {
+    const request = createRequest('/v1/audio/speech', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-tts',
+        input: 'hello',
+        voice: 'not-a-lang-$$$$',
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/audio/speech 的 google-tts 在空白 voice 时回退为 en', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    const urlString = String(url);
+    assert.match(urlString, /translate\.googleapis\.com\/translate_tts/);
+    assert.match(urlString, /tl=en/);
+    return new Response('mock-mp3', {
+      status: 200,
+      headers: { 'Content-Type': 'audio/mpeg' },
+    });
+  };
+
+  try {
+    const request = createRequest('/v1/audio/speech', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-tts',
+        input: 'hello',
+        voice: '   ',
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/audio/speech 的 google-tts 在合法 voice 时保留原值', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    const urlString = String(url);
+    assert.match(urlString, /translate\.googleapis\.com\/translate_tts/);
+    assert.match(urlString, /tl=fr-CA/);
+    return new Response('mock-mp3', {
+      status: 200,
+      headers: { 'Content-Type': 'audio/mpeg' },
+    });
+  };
+
+  try {
+    const request = createRequest('/v1/audio/speech', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'google-tts',
+        input: 'hello',
+        voice: 'fr-CA',
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
 test('POST /api/ms/translate 正常返回翻译结果', async () => {
   const originalFetch = globalThis.fetch;
   let authCalled = false;

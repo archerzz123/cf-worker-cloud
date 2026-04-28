@@ -759,7 +759,7 @@ async function handleTTS(request) {
 
   try {
     switch (model) {
-      case "google-tts": return await googleTTS(input, voice, Number(speed));
+      case "google-tts": return await googleTTS(input, normalizeLang(voice), Number(speed));
       case "youdao-dictvoice": return await youdaoTTS(input, Number(type));
       case "iciba-dictvoice": return await icibaTTS(input, Number(type));
       default:
@@ -796,6 +796,21 @@ function safeToNumber(value, fallback) {
 function normalizeText(value) {
   if (typeof value !== "string") return "";
   return value.trim();
+}
+
+function normalizeLang(lang) {
+  let value = normalizeText(lang);
+  if (!value) return DEFAULTS.TARGET_LANG;
+
+  // 常见容错
+  value = value.replace(/_/g, '-');
+
+  try {
+    const [normalized] = Intl.getCanonicalLocales(value);
+    return normalized || DEFAULTS.TARGET_LANG;
+  } catch {
+    return DEFAULTS.TARGET_LANG;
+  }
 }
 
 async function parseJsonBody(request) {
