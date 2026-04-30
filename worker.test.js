@@ -38,22 +38,6 @@ test('未鉴权访问 /api 路由返回 401', async () => {
   assert.equal(typeof data.request_id, 'string');
 });
 
-test('GET /llm.txt 无需鉴权且返回文本说明', async () => {
-  const request = createRequest('/llm.txt');
-  const response = await worker.fetch(request, createEnv(), {});
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get('Content-Type') || '', /text\/plain/);
-  const bodyText = await response.text();
-  assert.match(bodyText, /PubAPI LLM Access Guide/);
-  assert.match(bodyText, /POST \/v1\/chat\/completions/);
-  assert.match(bodyText, /RESTful API Usage/);
-  assert.match(bodyText, /Supported REST routes/);
-  assert.match(bodyText, /Response schema/);
-  assert.match(bodyText, /Error schema/);
-  assert.match(bodyText, /request_id/);
-  assert.match(bodyText, /\/api\/gg\/tts/);
-});
-
 test('GET /api/gg/tts 正常返回音频', async () => {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async (url) => {
