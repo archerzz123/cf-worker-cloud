@@ -44,7 +44,6 @@ const PATH = {
   MODELS: "/v1/models",
   CHAT: "/v1/chat/completions",
   SPEECH: "/v1/audio/speech",
-  LLM_TXT: "/llm.txt",
 };
 
 const DEFAULTS = {
@@ -312,96 +311,6 @@ function buildChatCompletionResponse(model, promptText, outputText) {
       completion_tokens: completionTokens,
       total_tokens: promptTokens + completionTokens,
     },
-  });
-}
-
-function buildLlmTxtContent() {
-  const lines = [
-    "# PubAPI LLM Access Guide",
-    "",
-    "## Base Capabilities",
-    "- OpenAI compatible chat endpoint: POST /v1/chat/completions",
-    "- OpenAI compatible speech endpoint: POST /v1/audio/speech",
-    "- RESTful endpoint: GET|POST /api/{provider}/{action}",
-    "- Model listing: GET /v1/models",
-    "",
-    "## Authentication",
-    "- Required for all endpoints except OPTIONS, /v1/models, /llm.txt",
-    "- Use Authorization: Bearer <API_KEY> or X-API-Key: <API_KEY>",
-    "",
-    "## Stream Policy",
-    "- /v1/chat/completions supports stream=true",
-    "- Stream returns text-only deltas (raw omitted)",
-    "",
-    "## RESTful API Usage",
-    "- Method: GET or POST",
-    "- Path format: /api/{provider}/{action}",
-    "- Content-Type for POST: application/json",
-    "- Auth headers: Authorization: Bearer <API_KEY> or X-API-Key: <API_KEY>",
-    "",
-    "### Provider aliases",
-    "- gg => google",
-    "- ms => microsoft",
-    "",
-    "### Supported REST routes",
-    "- /api/gg/tts                 | params: text, target_lang(optional), speed(optional)",
-    "- /api/gg/translate           | params: text, source_lang(optional), target_lang(optional)",
-    "- /api/gg/dict                | params: text, source_lang(optional), target_lang(optional)",
-    "- /api/ms/translate           | params: text, source_lang(optional), target_lang(optional)",
-    "- /api/youdao/tts             | params: text, type(optional: 1|2)",
-    "- /api/youdao/dict            | params: text",
-    "- /api/youdao/suggest         | params: text, nums(optional)",
-    "- /api/iciba/tts              | params: text, type(optional: 1|2)",
-    "- /api/iciba/dict             | params: text",
-    "- /api/iciba/suggest          | params: text, nums(optional)",
-    "",
-    "### Common parameters",
-    "- text: string, required for all REST routes",
-    "- source_lang: string, default=auto",
-    "- target_lang: string, default=en",
-    "- speed: number, default=1",
-    "- type: number, default=1 (1=UK, 2=US for dict voice providers)",
-    "- nums: number, default=5",
-    "",
-    "### Response schema",
-    "- JSON routes (translate/dict/suggest):",
-    "  {",
-    "    \"text\": \"string\",",
-    "    \"raw\": \"object|array\"",
-    "  }",
-    "- Audio routes (tts):",
-    "  - binary audio stream",
-    "  - content-type: audio/mpeg",
-    "",
-    "### Error schema",
-    "  {",
-    "    \"error\": \"string\",",
-    "    \"status\": \"number\",",
-    "    \"code\": \"string\",",
-    "    \"request_id\": \"string\",",
-    "    \"details\": \"optional\"",
-    "  }",
-    "",
-    "### RESTful Examples",
-    "- GET /api/gg/translate?text=hello&target_lang=zh-CN",
-    "- GET /api/iciba/dict?text=example",
-    "- GET /api/youdao/suggest?text=do&nums=5",
-    "- POST /api/ms/translate",
-    "  {\"text\":\"hello world\",\"source_lang\":\"en\",\"target_lang\":\"zh-Hans\"}",
-    "- GET /api/gg/tts?text=hello&target_lang=en&speed=1",
-    "",
-    "## Models",
-  ];
-  for (const model of MODELS) {
-    lines.push(`- ${model.id} | type=${model.type} | owner=${model.owned_by}`);
-  }
-  return lines.join("\n");
-}
-
-function llmTxtResp() {
-  return new Response(buildLlmTxtContent(), {
-    status: 200,
-    headers: { ...CORS, "Content-Type": "text/plain; charset=utf-8" },
   });
 }
 
@@ -679,9 +588,6 @@ export default {
 
       if (method === HTTP_METHOD.OPTIONS)
         return new Response(null, { status: 204, headers: CORS });
-
-      if (pathname === PATH.LLM_TXT && method === HTTP_METHOD.GET)
-        return llmTxtResp();
 
       if (pathname === PATH.MODELS && method === HTTP_METHOD.GET)
         return jsonResp({ object: "list", data: MODELS });

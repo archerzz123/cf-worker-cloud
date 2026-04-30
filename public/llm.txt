@@ -1,0 +1,74 @@
+# PubAPI LLM Access Guide
+
+This endpoint set is OpenAI-compatible and supports direct calls from LLM clients.
+
+## Base URL
+- https://cloud.gwvbrmrj265-jelia.workers.dev
+
+## Authentication
+- Send API key via one of:
+  - Authorization: Bearer <API_KEY>
+  - X-API-Key: <API_KEY>
+  - query: ?api_key=<API_KEY>
+- Required for all endpoints except OPTIONS, /v1/models, /llm.txt
+
+## OpenAI-Compatible Endpoints
+- GET /v1/models
+- POST /v1/chat/completions
+- POST /v1/audio/speech
+
+## RESTful API Usage
+- Route pattern: /api/{provider}/{action}
+- Supported REST routes:
+  - /api/gg/translate
+  - /api/gg/dict
+  - /api/gg/tts
+  - /api/iciba/dict
+  - /api/iciba/suggest
+  - /api/youdao/dict
+  - /api/youdao/suggest
+  - /api/ms/translate
+- Common params:
+  - text: string (required in most routes)
+  - source_lang: string, default=auto
+  - target_lang: string, default=en
+  - speed: number, default=1
+  - type: number, default=1 (1=UK, 2=US for dict voice providers)
+  - nums: number, default=5
+
+### Response schema
+- JSON routes (translate/dict/suggest):
+  {
+    "text": "string",
+    "raw": "object|array"
+  }
+- Audio routes (tts):
+  - binary audio stream
+  - content-type: audio/mpeg
+
+### Error schema
+  {
+    "error": "string",
+    "status": "number",
+    "code": "string",
+    "request_id": "string",
+    "details": "optional"
+  }
+
+### RESTful Examples
+- GET /api/gg/translate?text=hello&target_lang=zh-CN
+- GET /api/iciba/dict?text=example
+- GET /api/youdao/suggest?text=do&nums=5
+- POST /api/ms/translate
+  {"text":"hello world","source_lang":"en","target_lang":"zh-Hans"}
+- GET /api/gg/tts?text=hello&target_lang=en&speed=1
+
+## Models
+- google-translate | type=translate | owner=pubapi
+- google-dict | type=dict | owner=pubapi
+- google-tts | type=tts | owner=pubapi
+- iciba-dict | type=dict | owner=pubapi
+- iciba-suggest | type=suggest | owner=pubapi
+- youdao-dict | type=dict | owner=pubapi
+- youdao-suggest | type=suggest | owner=pubapi
+- microsoft-translate | type=translate | owner=pubapi
