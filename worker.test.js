@@ -25,6 +25,13 @@ function jsonResponse(body, status = 200) {
   });
 }
 
+function imageResponse(body = 'mock-image', contentType = 'image/png') {
+  return new Response(body, {
+    status: 200,
+    headers: { 'Content-Type': contentType },
+  });
+}
+
 function readFixtureJson(path) {
   return JSON.parse(fs.readFileSync(path, 'utf8'));
 }
@@ -57,6 +64,55 @@ test('GET /api/gg/tts 正常返回音频', async () => {
     const response = await worker.fetch(request, createEnv(), {});
     assert.equal(response.status, 200);
     assert.equal(response.headers.get('Content-Type'), 'audio/mpeg');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('GET /api/pollinations/image 正常返回图片数据', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    const urlString = String(url);
+    assert.match(urlString, /image\.pollinations\.ai\/prompt\/a%20cat/);
+    assert.match(urlString, /width=512/);
+    assert.match(urlString, /height=768/);
+    assert.match(urlString, /nologo=true/);
+    return imageResponse('mock-png');
+  };
+
+  try {
+    const request = createRequest('/api/pollinations/image?text=a%20cat&width=512&height=768', {
+      headers: authHeaders(),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Content-Type'), 'image/png');
+    assert.equal(await response.text(), 'mock-png');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /api/pollinations/image 使用默认尺寸返回图片数据', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    const urlString = String(url);
+    assert.match(urlString, /image\.pollinations\.ai\/prompt\/sunrise/);
+    assert.match(urlString, /width=1024/);
+    assert.match(urlString, /height=1024/);
+    return imageResponse('mock-jpeg', 'image/jpeg');
+  };
+
+  try {
+    const request = createRequest('/api/pollinations/image', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: 'sunrise' }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Content-Type'), 'image/jpeg');
+    assert.equal(await response.text(), 'mock-jpeg');
   } finally {
     globalThis.fetch = originalFetch;
   }
@@ -147,6 +203,95 @@ test('POST /v1/audio/speech 的 google-tts 在合法 voice 时保留原值', asy
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+test('POST /v1/images/generations 默认返回 OpenAI 兼容 url 结构', async () => {
+  const originalFetch = globalThis.fetch;
+  let fetchCalled = false;
+  globalThis.fetch = async () => {
+    fetchCalled = true;
+    return imageResponse();
+  };
+
+  try {
+    const request = createRequest('/v1/images/generations', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'pollinations-image',
+        prompt: 'blue lake',
+        width: 640,
+        height: 360,
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    const data = await response.json();
+    assert.equal(typeof data.created, 'number');
+    assert.equal(Array.isArray(data.data), true);
+    assert.match(data.data[0].url, /image\.pollinations\.ai\/prompt\/blue%20lake/);
+    assert.match(data.data[0].url, /width=640/);
+    assert.match(data.data[0].url, /height=360/);
+    assert.equal(fetchCalled, false);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/images/generations response_format=b64_json 返回 base64 图片', async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    const urlString = String(url);
+    assert.match(urlString, /image\.pollinations\.ai\/prompt\/red%20tree/);
+    assert.match(urlString, /width=256/);
+    assert.match(urlString, /height=256/);
+    return imageResponse('image-bytes');
+  };
+
+  try {
+    const request = createRequest('/v1/images/generations', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt: 'red tree',
+        width: 256,
+        height: 256,
+        response_format: 'b64_json',
+      }),
+    });
+    const response = await worker.fetch(request, createEnv(), {});
+    assert.equal(response.status, 200);
+    const data = await response.json();
+    assert.equal(data.data[0].b64_json, Buffer.from('image-bytes').toString('base64'));
+    assert.equal(data.data[0].url, undefined);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('POST /v1/images/generations 缺少 prompt 返回统一错误结构', async () => {
+  const request = createRequest('/v1/images/generations', {
+    method: 'POST',
+    headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: 'pollinations-image' }),
+  });
+  const response = await worker.fetch(request, createEnv(), {});
+  assert.equal(response.status, 400);
+  const data = await response.json();
+  assert.equal(data.code, 'MISSING_TEXT');
+  assert.equal(typeof data.request_id, 'string');
+});
+
+test('POST /v1/images/generations 不支持的 response_format 返回 400', async () => {
+  const request = createRequest('/v1/images/generations', {
+    method: 'POST',
+    headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prompt: 'test', response_format: 'json' }),
+  });
+  const response = await worker.fetch(request, createEnv(), {});
+  assert.equal(response.status, 400);
+  const data = await response.json();
+  assert.equal(data.code, 'UNSUPPORTED_RESPONSE_FORMAT');
 });
 
 test('POST /api/ms/translate 正常返回翻译结果', async () => {

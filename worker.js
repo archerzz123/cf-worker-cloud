@@ -5,6 +5,7 @@
  *   GET  /v1/models              — 返回所有支持的模型列表
  *   POST /v1/chat/completions    — 文字翻译 / 词典查询
  *   POST /v1/audio/speech        — TTS 语音合成
+ *   POST /v1/images/generations  — OpenAI 兼容图片生成
  *   GET|POST /api/{provider}/{action} — RESTful 访问（示例: /api/gg/tts）
  *
  * ── Chat 请求体 ──────────────────────────────────────────────
@@ -44,6 +45,7 @@ const PATH = {
   MODELS: "/v1/models",
   CHAT: "/v1/chat/completions",
   SPEECH: "/v1/audio/speech",
+  IMAGES: "/v1/images/generations",
 };
 
 const DEFAULTS = {
@@ -52,10 +54,18 @@ const DEFAULTS = {
   NUMS: 5,
   SPEED: 1,
   TYPE: 1,
+  IMAGE_WIDTH: 1024,
+  IMAGE_HEIGHT: 1024,
+  IMAGE_RESPONSE_FORMAT: "url",
 };
 const CHAT_COMPLETION_OBJECT = "chat.completion";
 const CHAT_COMPLETION_FINISH_REASON = "stop";
 const CHAT_COMPLETION_CHUNK_OBJECT = "chat.completion.chunk";
+const OPENAI_IMAGE_MODEL = "pollinations-image";
+const IMAGE_RESPONSE_FORMAT = {
+  URL: "url",
+  B64_JSON: "b64_json",
+};
 const ERROR_CODE = {
   INVALID_JSON: "INVALID_JSON",
   MISSING_MODEL: "MISSING_MODEL",
@@ -63,6 +73,8 @@ const ERROR_CODE = {
   UNAUTHORIZED: "UNAUTHORIZED",
   UNSUPPORTED_CHAT_MODEL: "UNSUPPORTED_CHAT_MODEL",
   UNSUPPORTED_TTS_MODEL: "UNSUPPORTED_TTS_MODEL",
+  UNSUPPORTED_IMAGE_MODEL: "UNSUPPORTED_IMAGE_MODEL",
+  UNSUPPORTED_RESPONSE_FORMAT: "UNSUPPORTED_RESPONSE_FORMAT",
   UNSUPPORTED_REST_ROUTE: "UNSUPPORTED_REST_ROUTE",
   METHOD_NOT_ALLOWED: "METHOD_NOT_ALLOWED",
   UPSTREAM_ERROR: "UPSTREAM_ERROR",
@@ -78,6 +90,7 @@ const PROVIDER_ALIAS = {
   microsoft: "microsoft",
   iciba: "iciba",
   youdao: "youdao",
+  pollinations: "pollinations",
 };
 
 // ─── 模型目录 ─────────────────────────────────────────────────────────────────
@@ -93,6 +106,7 @@ const MODELS = [
   { id: "iciba-dict", object: "model", owned_by: "iciba", type: "chat", description: "金山词霸词典查询", params: ["messages"] },
   { id: "iciba-suggest", object: "model", owned_by: "iciba", type: "chat", description: "金山词霸单词联想", params: ["messages", "nums(默认5)"] },
   { id: "microsoft-translate", object: "model", owned_by: "microsoft", type: "chat", description: "Microsoft Translator — 机器翻译（原生多段）", params: ["messages", "source_lang(auto则省略)", "target_lang"] },
+  { id: OPENAI_IMAGE_MODEL, object: "model", owned_by: "pollinations", type: "image", description: "Pollinations Image — 图片生成", params: ["prompt", "width(默认1024)", "height(默认1024)", "response_format(url|b64_json)"] },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -561,6 +575,21 @@ function audioResp(upstreamRes) {
   return new Response(upstreamRes.body, { status: upstreamRes.status, headers });
 }
 
+/** 透传上游图片 headers，叠加 CORS */
+function imageResp(upstreamRes) {
+  const headers = new Headers(upstreamRes.headers);
+  if (!headers.has("Content-Type")) headers.set("Content-Type", "image/jpeg");
+  for (const [k, v] of Object.entries(CORS)) headers.set(k, v);
+  return new Response(upstreamRes.body, { status: upstreamRes.status, headers });
+}
+
+function arrayBufferToBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
 /** 下载远程 mp3（media-utils.js downloadFile） */
 async function downloadFile(url) {
   const res = await fetch(url, { headers: fakeBrowserHeaders("iciba") });
@@ -607,6 +636,9 @@ export default {
 
       if (pathname === PATH.SPEECH && method === HTTP_METHOD.POST)
         return await handleTTS(request);
+
+      if (pathname === PATH.IMAGES)
+        return await handleImageGeneration(request);
 
       return buildErrorResp({ message: "路径不存在，请查看 GET /v1/models 获取使用说明", status: 404, code: ERROR_CODE.UNSUPPORTED_REST_ROUTE });
     } catch (error) {
@@ -671,6 +703,25 @@ async function handleTTS(request) {
       default:
         return buildErrorResp({ message: `不支持的 TTS 模型: ${model}，请查看 GET /v1/models`, status: 400, code: ERROR_CODE.UNSUPPORTED_TTS_MODEL });
     }
+  } catch (e) {
+    return buildErrorResp({ message: `上游请求失败: ${e.message}`, status: 502, code: ERROR_CODE.UPSTREAM_ERROR });
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ── OpenAI 图片路由 ──────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async function handleImageGeneration(request) {
+  const method = request.method.toUpperCase();
+  if (method !== HTTP_METHOD.POST)
+    return buildErrorResp({ message: "图片生成接口仅支持 POST", status: 405, code: ERROR_CODE.METHOD_NOT_ALLOWED });
+
+  const imageInput = await buildImageGenerationInput(request);
+  if (imageInput.error) return imageInput.error;
+
+  try {
+    return await buildImageGenerationResponse(imageInput);
   } catch (e) {
     return buildErrorResp({ message: `上游请求失败: ${e.message}`, status: 502, code: ERROR_CODE.UPSTREAM_ERROR });
   }
@@ -773,6 +824,19 @@ function normalizeRequestInput({ query, body }) {
     speed: safeToNumber(query.get("speed") ?? parsedBody.speed, DEFAULTS.SPEED),
     type: safeToNumber(query.get("type") ?? parsedBody.type, DEFAULTS.TYPE),
     nums: safeToNumber(query.get("nums") ?? parsedBody.nums, DEFAULTS.NUMS),
+    width: safeToNumber(query.get("width") ?? parsedBody.width, DEFAULTS.IMAGE_WIDTH),
+    height: safeToNumber(query.get("height") ?? parsedBody.height, DEFAULTS.IMAGE_HEIGHT),
+  };
+}
+
+function normalizeImageGenerationInput(body) {
+  const parsedBody = body ?? {};
+  return {
+    model: firstNonEmpty([parsedBody.model], OPENAI_IMAGE_MODEL),
+    prompt: firstNonEmpty([parsedBody.prompt]),
+    width: safeToNumber(parsedBody.width, DEFAULTS.IMAGE_WIDTH),
+    height: safeToNumber(parsedBody.height, DEFAULTS.IMAGE_HEIGHT),
+    response_format: firstNonEmpty([parsedBody.response_format], DEFAULTS.IMAGE_RESPONSE_FORMAT),
   };
 }
 
@@ -806,6 +870,21 @@ async function buildRestInput(request) {
   return await buildRequestInput(request, "rest");
 }
 
+async function buildImageGenerationInput(request) {
+  const body = await parseJsonBody(request);
+  if (body?.__invalid_json__) return { error: buildErrorResp({ message: "请求体必须是合法的 JSON", status: 400, code: ERROR_CODE.INVALID_JSON }) };
+
+  const input = normalizeImageGenerationInput(body);
+  if (!input.prompt) return { error: buildErrorResp({ message: "缺少 prompt 字段", status: 400, code: ERROR_CODE.MISSING_TEXT }) };
+  if (input.model !== OPENAI_IMAGE_MODEL) {
+    return { error: buildErrorResp({ message: `不支持的图片模型: ${input.model}`, status: 400, code: ERROR_CODE.UNSUPPORTED_IMAGE_MODEL }) };
+  }
+  if (!Object.values(IMAGE_RESPONSE_FORMAT).includes(input.response_format)) {
+    return { error: buildErrorResp({ message: `不支持的图片返回格式: ${input.response_format}`, status: 400, code: ERROR_CODE.UNSUPPORTED_RESPONSE_FORMAT }) };
+  }
+  return input;
+}
+
 const REST_ROUTE_HANDLER = {
   "google.tts": (input) => googleTTS(input.text, input.target_lang, input.speed),
   "google.translate": (input) => googleTranslate(input.text, input.source_lang, input.target_lang),
@@ -817,6 +896,7 @@ const REST_ROUTE_HANDLER = {
   "youdao.tts": (input) => youdaoTTS(input.text, input.type),
   "youdao.dict": (input) => youdaoDict(input.text),
   "youdao.suggest": (input) => youdaoSuggest(input.text, input.nums),
+  "pollinations.image": (input) => pollinationsImage(input.text, input.width, input.height),
 };
 
 async function handleRestApi(request, pathname) {
@@ -882,6 +962,51 @@ async function googleDictData(text, sourceLang, targetLang) {
 
 async function googleDict(text, sourceLang, targetLang) {
   return jsonResp(await googleDictData(text, sourceLang, targetLang));
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ── Pollinations Image ────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function buildPollinationsImageUrl(prompt, width, height) {
+  const safeWidth = Math.max(1, Math.floor(safeToNumber(width, DEFAULTS.IMAGE_WIDTH)));
+  const safeHeight = Math.max(1, Math.floor(safeToNumber(height, DEFAULTS.IMAGE_HEIGHT)));
+  const params = new URLSearchParams({
+    width: String(safeWidth),
+    height: String(safeHeight),
+    nologo: "true",
+  });
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?${params}`;
+}
+
+async function pollinationsImageData(prompt, width, height) {
+  const url = buildPollinationsImageUrl(prompt, width, height);
+  const res = await fetch(url, { headers: fakeBrowserHeaders("google") });
+  await assertResponseIsOK(res, "Pollinations Image HTTP");
+  return {
+    bytes: await res.arrayBuffer(),
+    contentType: res.headers.get("Content-Type") || "image/jpeg",
+    url,
+  };
+}
+
+async function pollinationsImage(prompt, width, height) {
+  const url = buildPollinationsImageUrl(prompt, width, height);
+  const res = await fetch(url, { headers: fakeBrowserHeaders("google") });
+  await assertResponseIsOK(res, "Pollinations Image HTTP");
+  return imageResp(res);
+}
+
+async function buildImageGenerationResponse(input) {
+  const url = buildPollinationsImageUrl(input.prompt, input.width, input.height);
+  const item = input.response_format === IMAGE_RESPONSE_FORMAT.B64_JSON
+    ? { b64_json: arrayBufferToBase64((await pollinationsImageData(input.prompt, input.width, input.height)).bytes) }
+    : { url };
+
+  return jsonResp({
+    created: Math.floor(Date.now() / 1000),
+    data: [item],
+  });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

@@ -16,6 +16,7 @@ This endpoint set is OpenAI-compatible and supports direct calls from LLM client
 - GET /v1/models
 - POST /v1/chat/completions
 - POST /v1/audio/speech
+- POST /v1/images/generations
 
 ## RESTful API Usage
 - Route pattern: /api/{provider}/{action}
@@ -28,6 +29,7 @@ This endpoint set is OpenAI-compatible and supports direct calls from LLM client
   - /api/youdao/dict
   - /api/youdao/suggest
   - /api/ms/translate
+  - /api/pollinations/image
 - Common params:
   - text: string (required in most routes)
   - source_lang: string, default=auto
@@ -35,6 +37,8 @@ This endpoint set is OpenAI-compatible and supports direct calls from LLM client
   - speed: number, default=1
   - type: number, default=1 (1=UK, 2=US for dict voice providers)
   - nums: number, default=5
+  - width: number, default=1024 (image routes)
+  - height: number, default=1024 (image routes)
 
 ### Response schema
 - JSON routes (translate/dict/suggest):
@@ -45,6 +49,10 @@ This endpoint set is OpenAI-compatible and supports direct calls from LLM client
 - Audio routes (tts):
   - binary audio stream
   - content-type: audio/mpeg
+- Image routes:
+  - /api/pollinations/image returns binary image data
+  - /v1/images/generations returns {"created": number, "data": [{"url": string}]} by default
+  - /v1/images/generations with response_format=b64_json returns {"created": number, "data": [{"b64_json": string}]}
 
 ### Error schema
   {
@@ -62,6 +70,9 @@ This endpoint set is OpenAI-compatible and supports direct calls from LLM client
 - POST /api/ms/translate
   {"text":"hello world","source_lang":"en","target_lang":"zh-Hans"}
 - GET /api/gg/tts?text=hello&target_lang=en&speed=1
+- GET /api/pollinations/image?text=a%20cat&width=1024&height=1024
+- POST /v1/images/generations
+  {"model":"pollinations-image","prompt":"a cat","width":1024,"height":1024,"response_format":"url"}
 
 ## Models
 - google-translate | type=translate | owner=pubapi
@@ -72,3 +83,4 @@ This endpoint set is OpenAI-compatible and supports direct calls from LLM client
 - youdao-dict | type=dict | owner=pubapi
 - youdao-suggest | type=suggest | owner=pubapi
 - microsoft-translate | type=translate | owner=pubapi
+- pollinations-image | type=image | owner=pollinations
